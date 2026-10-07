@@ -1,0 +1,9694 @@
+/* =========================================
+   БАЗА
+========================================= */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    margin: 0;
+
+    font-family: "Manrope", sans-serif;
+
+    background: #f8f7f2;
+
+    color: #18201c;
+
+    overflow-x: hidden;
+}
+
+a{
+    text-decoration: none;
+}
+
+button{
+    font-family: inherit;
+}
+
+.container{
+    width: min(90%, 1400px);
+    margin: 0 auto;
+}
+
+
+
+/* =========================================
+   ЦВЕТА
+========================================= */
+
+:root{
+
+    --green: #0d3d2a;
+
+    --green-dark: #08291d;
+
+    --green-light: #164d37;
+
+    --gold: #c9a646;
+
+    --gold-light: #e3c873;
+
+    --white: #ffffff;
+
+}
+
+
+
+/* =========================================
+   ШАПКА
+========================================= */
+
+.header{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 96px;
+    z-index: 100;
+   background: #072b1e;
+    border-bottom: 1px solid rgba(201, 166, 70, 0.55);
+}
+
+.header-inner{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 101;
+}
+
+
+/* =========================================
+   ЛОГОТИП
+========================================= */
+
+.logo{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    color: white;
+
+    flex-shrink: 0;
+
+}
+
+
+.logo img{
+
+    width: 58px;
+
+    height: 70px;
+
+    object-fit: contain;
+
+}
+
+
+.logo-title{
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 21px;
+
+    line-height: 1.1;
+
+    font-weight: 700;
+
+    letter-spacing: 0.3px;
+
+    white-space: nowrap;
+
+}
+
+
+.logo-subtitle{
+
+    margin-top: 5px;
+
+    font-size: 11px;
+
+    line-height: 1.2;
+
+    color: var(--gold-light);
+
+}
+
+
+
+/* =========================================
+   НАВИГАЦИЯ
+========================================= */
+
+.navigation{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 29px;
+
+    margin-left: auto;
+
+}
+
+
+.navigation a{
+
+    position: relative;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    transition: 0.25s ease;
+
+}
+
+
+.navigation a::after{
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    bottom: -9px;
+
+    width: 0;
+
+    height: 2px;
+
+    background: var(--gold);
+
+    transition: 0.25s ease;
+
+}
+
+
+.navigation a:hover{
+
+    color: var(--gold-light);
+
+}
+
+
+.navigation a:hover::after{
+
+    width: 100%;
+
+}
+
+
+
+/* =========================================
+   ПОИСК
+========================================= */
+
+.search-button{
+
+    width: 46px;
+
+    height: 46px;
+
+    margin-left: 28px;
+
+    border-radius: 50%;
+
+    border: 1.5px solid var(--gold);
+
+    background: transparent;
+
+    position: relative;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+}
+
+
+.search-button::before{
+
+    content: "";
+
+    position: absolute;
+
+    width: 10px;
+
+    height: 10px;
+
+    border: 2px solid var(--gold);
+
+    border-radius: 50%;
+
+    top: 14px;
+
+    left: 14px;
+
+}
+
+
+.search-button::after{
+
+    content: "";
+
+    position: absolute;
+
+    width: 7px;
+
+    height: 2px;
+
+    background: var(--gold);
+
+    transform: rotate(45deg);
+
+    top: 26px;
+
+    left: 25px;
+
+}
+
+
+.search-button:hover{
+
+    background: var(--gold);
+
+}
+
+
+.search-button:hover::before{
+
+    border-color: var(--green);
+
+}
+
+
+.search-button:hover::after{
+
+    background: var(--green);
+
+}
+
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.hero{
+    position: relative;
+
+    /* Ровно один экран */
+    height: 100vh;
+    min-height: 700px;
+
+    padding-top: 96px;
+
+    overflow: hidden;
+
+    background: var(--green-dark);
+
+    color: white;
+}
+
+/* =========================================
+   ФОТО
+========================================= */
+
+.hero-photo{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 72%;
+    height: 100%;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.hero-photo img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+
+    /* Центральный вход */
+    object-position: 15% center;
+
+    filter: brightness(1) saturate(1.08);
+
+    transform: scale(1.02);
+}
+
+
+/* =========================================
+   ГЛАВНЫЙ ЗЕЛЁНЫЙ ГРАДИЕНТ
+========================================= */
+
+.hero-gradient{
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            90deg,
+            #0d3d2a 0%,
+            #0d3d2a 24%,
+            rgba(13, 61, 42, 0.98) 35%,
+            rgba(13, 61, 42, 0.90) 43%,
+            rgba(13, 61, 42, 0.65) 51%,
+            rgba(13, 61, 42, 0.30) 60%,
+            rgba(13, 61, 42, 0.08) 70%,
+            transparent 82%
+        );
+}
+
+
+/* =========================================
+   ЗАТЕМНЕНИЕ ФОТО
+========================================= */
+
+.hero-dark{
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 3;
+
+    pointer-events: none;
+
+    background:
+
+        linear-gradient(
+            180deg,
+
+            rgba(0, 0, 0, 0.08),
+
+            rgba(0, 0, 0, 0.04) 50%,
+
+            rgba(0, 0, 0, 0.25) 100%
+        );
+
+}
+
+
+
+/* =========================================
+   КОНТЕНТ HERO
+========================================= */
+
+.hero-container{
+    position: relative;
+
+    z-index: 5;
+
+    height: calc(100vh - 96px);
+
+    display: flex;
+
+    align-items: center;
+}
+
+.hero-content{
+
+    width: 650px;
+
+    padding-bottom: 55px;
+
+}
+
+
+
+/* =========================================
+   МАЛЕНЬКИЙ ЗАГОЛОВОК
+========================================= */
+
+.hero-label{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-bottom: 26px;
+
+    color: var(--gold);
+
+    font-size: 13px;
+
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+}
+
+
+.hero-label b{
+
+    font-weight: 800;
+
+}
+
+
+.hero-label i{
+
+    width: 125px;
+
+    height: 1px;
+
+    margin-left: 10px;
+
+    background: var(--gold);
+
+}
+
+
+
+/* =========================================
+   H1
+========================================= */
+
+.hero h1{
+    margin: 0;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: clamp(54px, 4.7vw, 72px);
+
+    line-height: 0.98;
+
+    letter-spacing: -2px;
+
+    font-weight: 800;
+}
+
+.title-white{
+
+    display: block;
+
+    color: white;
+
+}
+
+
+.title-gold{
+
+    display: block;
+
+    color: var(--gold);
+
+}
+
+
+
+/* =========================================
+   УНИВЕРСИТЕТ
+========================================= */
+
+.hero-university{
+
+    margin-top: 27px;
+
+    font-family: "Playfair Display", Georgia, serif;
+
+    font-size: 24px;
+
+    line-height: 1.4;
+
+    color: white;
+
+}
+
+
+
+/* =========================================
+   ОПИСАНИЕ
+========================================= */
+
+.hero-description{
+
+    max-width: 590px;
+
+    margin-top: 19px;
+
+    margin-bottom: 36px;
+
+    color: rgba(255, 255, 255, 0.92);
+
+    font-size: 17px;
+
+    line-height: 1.65;
+
+}
+
+
+
+/* =========================================
+   КНОПКИ
+========================================= */
+
+.hero-buttons{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+
+.button{
+
+    min-height: 62px;
+
+    padding: 0 31px;
+
+    border-radius: 8px;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 30px;
+
+    font-size: 16px;
+
+    font-weight: 800;
+
+    transition: all 0.25s ease;
+
+}
+
+
+.button-primary{
+
+    min-width: 292px;
+
+    color: #162018;
+
+    background: var(--gold);
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+
+}
+
+
+.button-primary strong{
+
+    font-size: 23px;
+
+    font-weight: 500;
+
+}
+
+
+.button-primary:hover{
+
+    background: var(--gold-light);
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+
+}
+
+
+.button-secondary{
+
+    min-width: 192px;
+
+    color: white;
+
+    border: 1.5px solid var(--gold);
+
+    background: rgba(13, 61, 42, 0.3);
+
+    backdrop-filter: blur(6px);
+
+}
+
+
+.button-secondary:hover{
+
+    color: #18201c;
+
+    background: var(--gold);
+
+    transform: translateY(-3px);
+
+}
+
+
+
+/* =========================================
+   ПРЕИМУЩЕСТВА
+========================================= */
+
+.features{
+    position: absolute;
+
+    left: 0;
+    right: 0;
+
+    bottom: 18px;
+
+    z-index: 7;
+
+    height: 100px;
+
+    display: grid;
+
+    grid-template-columns:
+        1fr auto
+        1fr auto
+        1.15fr auto
+        1fr;
+
+    align-items: center;
+
+    gap: 30px;
+
+    padding: 0;
+}
+
+.feature{
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+}
+
+
+.feature-icon{
+
+    width: 48px;
+
+    height: 48px;
+
+    flex-shrink: 0;
+
+}
+
+
+.feature-icon svg{
+
+    width: 100%;
+
+    height: 100%;
+
+    fill: none;
+
+    stroke: var(--gold);
+
+    stroke-width: 2;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+
+}
+
+
+.feature-text strong{
+    display: block;
+
+    color: white;
+
+    font-size: 16px;
+
+    line-height: 1.3;
+
+    font-weight: 800;
+}
+
+.feature-text span{
+    display: block;
+
+    margin-top: 4px;
+
+    color: rgba(255, 255, 255, 0.78);
+
+    font-size: 14px;
+
+    line-height: 1.35;
+}
+
+.feature-divider{
+
+    width: 1px;
+
+    height: 42px;
+
+    background: rgba(201, 166, 70, 0.45);
+
+}
+
+
+
+/* =========================================
+   ПЛАНШЕТ
+========================================= */
+
+@media (max-width: 1150px) {
+
+    .navigation{
+
+        gap: 17px;
+
+    }
+
+    .navigation a{
+
+        font-size: 12px;
+
+    }
+
+    .search-button{
+
+        margin-left: 15px;
+
+    }
+
+    .logo-title{
+
+        font-size: 18px;
+
+    }
+
+    .logo-subtitle{
+
+        font-size: 9px;
+
+    }
+
+    .hero h1{
+
+        font-size: 62px;
+
+    }
+
+    .features{
+
+        gap: 16px;
+
+    }
+
+}
+
+
+
+/* =========================================
+   МОБИЛЬНЫЙ
+========================================= */
+
+@media (max-width: 850px) {
+
+    .header{
+
+        height: 82px;
+
+    }
+
+    .navigation{
+
+        display: none;
+
+    }
+
+    .logo img{
+
+        width: 48px;
+
+        height: 60px;
+
+    }
+
+    .logo-title{
+
+        font-size: 16px;
+
+    }
+
+    .logo-subtitle{
+
+        display: none;
+
+    }
+
+    .search-button{
+
+        margin-left: auto;
+
+    }
+
+    .hero{
+
+        min-height: 1000px;
+
+        padding-top: 82px;
+
+    }
+
+    .hero-photo{
+
+        width: 100%;
+
+        opacity: 0.42;
+
+    }
+
+    .hero-gradient{
+
+        background:
+
+            linear-gradient(
+                180deg,
+
+                #0d3d2a 0%,
+
+                rgba(13, 61, 42, 0.9) 35%,
+
+                rgba(13, 61, 42, 0.78) 100%
+            );
+
+    }
+
+    .hero-container{
+
+        min-height: 720px;
+
+    }
+
+    .hero-content{
+
+        width: 100%;
+
+    }
+
+    .hero h1{
+
+        font-size: 52px;
+
+    }
+
+    .hero-university{
+
+        font-size: 20px;
+
+    }
+
+    .hero-description{
+
+        font-size: 16px;
+
+    }
+
+    .hero-buttons{
+
+        flex-direction: column;
+
+        align-items: stretch;
+
+    }
+
+    .button{
+
+        width: 100%;
+
+    }
+
+    .features{
+
+        grid-template-columns: 1fr 1fr;
+
+        gap: 25px;
+
+        padding-bottom: 35px;
+
+    }
+
+    .feature-divider{
+
+        display: none;
+
+    }
+
+}
+
+
+
+/* =========================================
+   МАЛЕНЬКИЙ ТЕЛЕФОН
+========================================= */
+
+@media (max-width: 520px) {
+
+    .container{
+
+        width: 88%;
+
+    }
+
+    .hero h1{
+
+        font-size: 44px;
+
+    }
+
+    .hero-label{
+
+        font-size: 10px;
+
+        letter-spacing: 2.5px;
+
+    }
+
+    .hero-label i{
+
+        width: 45px;
+
+    }
+
+    .features{
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
+
+
+/* =========================================
+   ОБ ИНСТИТУТЕ
+========================================= */
+
+.about{
+    position: relative;
+    background: #f6f4ee;
+    color: var(--green-dark);
+
+    padding: 40px 0 80px;
+}
+
+
+/* ОСНОВНОЙ БЛОК */
+
+.about-container{
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 80px;
+
+    align-items: center;
+}
+
+
+/* ТЕКСТ */
+
+.about-content{
+    max-width: 620px;
+}
+
+
+.section-label{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    margin-bottom: 24px;
+
+    color: #b89432;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.section-label::after{
+    content: "";
+
+    width: 90px;
+    height: 1px;
+
+    background: #c6a33b;
+}
+
+
+.about h2{
+    margin: 0 0 30px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(46px, 4.5vw, 68px);
+    line-height: 0.98;
+
+    font-weight: 700;
+
+    color: var(--green-dark);
+}
+
+.about h2 span{
+    display: block;
+
+    color: #c8a43d;
+}
+
+
+.about-lead{
+    margin: 0 0 22px;
+
+    max-width: 580px;
+
+    font-size: 21px;
+    line-height: 1.55;
+
+    font-weight: 500;
+}
+
+
+.about-text{
+    margin: 0 0 35px;
+
+    max-width: 560px;
+
+    font-size: 17px;
+    line-height: 1.7;
+
+    color: #59645e;
+}
+
+
+/* КНОПКА */
+
+.about-button{
+    display: inline-flex;
+    align-items: center;
+    gap: 35px;
+
+    padding: 17px 24px;
+
+    border: 1px solid #c8a43d;
+    border-radius: 4px;
+
+    color: var(--green-dark);
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        gap 0.25s ease;
+}
+
+
+.about-button span{
+    font-size: 22px;
+}
+
+
+.about-button:hover{
+    background: #c8a43d;
+
+    color: #fff;
+
+    gap: 45px;
+}
+
+
+/* =========================================
+   ФОТО
+========================================= */
+
+.about-photo{
+    position: relative;
+
+    height: 540px;
+
+    overflow: hidden;
+
+    border-radius: 4px;
+}
+
+
+.about-photo img{
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    object-position: center 35%;
+
+    transition: transform 0.6s ease;
+}
+
+
+.about-photo:hover img{
+    transform: scale(1.03);
+}
+
+
+/* Затемнение */
+
+.about-photo::after{
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        linear-gradient(
+            to top,
+            rgba(4, 42, 30, 0.8),
+            rgba(4, 42, 30, 0) 55%
+        );
+
+    pointer-events: none;
+}
+
+
+/* Подпись на фотографии */
+
+.about-photo-label{
+    position: absolute;
+
+    left: 32px;
+    right: 32px;
+    bottom: 30px;
+
+    z-index: 2;
+
+    color: white;
+}
+
+
+.about-photo-label strong{
+    display: block;
+
+    margin-bottom: 7px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 27px;
+}
+
+
+.about-photo-label span{
+    font-size: 14px;
+
+    opacity: 0.85;
+}
+
+
+/* =========================================
+   ПОКАЗАТЕЛИ
+========================================= */
+
+.about-stats{
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    margin-top: 55px;
+
+    border-top: 1px solid #d6cfbd;
+}
+
+.about-stat{
+    display: flex;
+
+    align-items: center;
+
+    gap: 22px;
+
+    min-height: 125px;
+
+    padding: 25px 30px;
+
+    border-right: 1px solid #d6cfbd;
+}
+
+.about-stat:first-child{
+    padding-left: 0;
+}
+
+
+.about-stat:last-child{
+    border-right: none;
+}
+
+
+.about-stat strong{
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 52px;
+
+    line-height: 1;
+
+    color: #c8a43d;
+
+    flex-shrink: 0;
+}
+
+.about-stat span{
+    font-size: 15px;
+
+    line-height: 1.45;
+
+    color: #59645e;
+}
+
+
+/* =========================================
+   АДАПТИВ
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .about-container{
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+    }
+
+    .about-content{
+        max-width: 750px;
+    }
+
+    .about-photo{
+        height: 500px;
+    }
+
+    .about-stats{
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .about-stat:nth-child(2){
+        border-right: none;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .about{
+        padding: 70px 0;
+    }
+
+    .about h2{
+        font-size: 46px;
+    }
+
+    .about-lead{
+        font-size: 18px;
+    }
+
+    .about-photo{
+        height: 380px;
+    }
+
+    .about-stats{
+        grid-template-columns: 1fr;
+
+        margin-top: 60px;
+    }
+
+    .about-stat, .about-stat:first-child{
+        padding: 25px 0;
+
+        border-right: none;
+        border-bottom: 1px solid #d6cfbd;
+    }
+
+    .about-stat:last-child{
+        border-bottom: none;
+    }
+
+}
+
+
+
+/* =========================================
+   ОБРАЗОВАНИЕ
+========================================= */
+
+
+
+
+/* ЗАГОЛОВОК */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* КАРТОЧКИ */
+
+
+
+
+
+
+
+/* НОМЕР */
+
+
+
+
+/* КОНТЕНТ */
+
+
+
+
+
+
+
+
+
+
+/* СТРЕЛКА */
+
+
+
+
+/* HOVER */
+
+
+
+
+
+
+
+
+
+/* =========================================
+   НАУКА
+========================================= */
+
+.science{
+    background: #f6f4ee;
+    color: var(--green-dark);
+    padding: 35px 0 45px;
+}
+
+/* ЗАГОЛОВОК */
+
+.science-header{
+    margin-bottom: 0;
+}
+
+.science h2{
+    margin: 0;
+    max-width: 760px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(38px, 3.4vw, 52px);
+    line-height: 0.98;
+    letter-spacing: -1.5px;
+    font-weight: 700;
+}
+
+.science h2 span{
+    color: #c8a43d;
+}
+
+/* ВВОДНЫЙ ТЕКСТ */
+
+.science-intro{
+    max-width: 470px;
+    margin-left: auto;
+
+    margin-top: -15px;
+    margin-bottom: 25px;
+
+    font-size: 16px;
+    line-height: 1.5;
+    color: #59645e;
+}
+
+/* =========================================
+   ОСНОВНОЙ БЛОК
+========================================= */
+
+.science-main{
+    display: grid;
+
+    grid-template-columns: 1.2fr 0.8fr;
+
+    height: 380px;
+    min-height: 0;
+
+    margin-top: 0;
+}
+
+/* Фото и зелёная плашка */
+
+.science-main > *{
+    min-height: 0;
+}
+
+/* ФОТО */
+
+.science-photo{
+    overflow: hidden;
+}
+
+.science-photo img{
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.science-photo:hover img{
+    transform: scale(1.03);
+}
+
+/* =========================================
+   ЗЕЛЁНАЯ ПЛАШКА
+========================================= */
+
+.science-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 45px 50px;
+
+    background: var(--green-dark);
+    color: white;
+}
+
+.science-number{
+    margin-bottom: 28px;
+
+    color: #c8a43d;
+
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.science-content h3{
+    max-width: 470px;
+
+    margin: 0 0 18px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 38px;
+    line-height: 1.05;
+}
+
+.science-content p{
+    max-width: 450px;
+
+    margin: 0 0 25px;
+
+    font-size: 16px;
+    line-height: 1.55;
+
+    color: rgba(255,255,255,0.72);
+}
+
+/* КНОПКА */
+
+.science-button{
+    display: inline-flex;
+    align-items: center;
+
+    gap: 25px;
+
+    width: fit-content;
+
+    color: #c8a43d;
+
+    text-decoration: none;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    transition: gap 0.25s ease;
+}
+
+.science-button span{
+    font-size: 22px;
+}
+
+.science-button:hover{
+    gap: 35px;
+}
+
+/* =========================================
+   КАРТОЧКИ
+========================================= */
+
+.science-list{
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    margin-top: 0;
+
+    border-top: 1px solid #d6cfbd;
+
+    position: relative;
+    z-index: 2;
+}
+
+.science-card{
+    position: relative;
+
+    min-height: 180px;
+
+    padding: 28px 30px;
+
+    border-right: 1px solid #d6cfbd;
+    border-bottom: 1px solid #d6cfbd;
+
+    background: #f6f4ee;
+
+    color: var(--green-dark);
+
+    text-decoration: none;
+
+    box-sizing: border-box;
+
+    transition: background 0.25s ease;
+}
+
+.science-card:last-child{
+    border-right: none;
+}
+
+.science-card:hover{
+    background: #ebe7dc;
+}
+
+/* НОМЕР */
+
+.science-card-number{
+    display: block;
+
+    margin-bottom: 35px;
+
+    color: #c8a43d;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+/* ЗАГОЛОВОК КАРТОЧКИ */
+
+.science-card-content h4{
+    margin: 0 0 10px;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 25px;
+    line-height: 1.1;
+}
+
+/* ОПИСАНИЕ */
+
+.science-card-content p{
+    max-width: 280px;
+
+    margin: 0;
+
+    color: #59645e;
+
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* СТРЕЛКА */
+
+.science-card-arrow{
+    position: absolute;
+
+    right: 30px;
+    bottom: 27px;
+
+    color: #c8a43d;
+
+    font-size: 24px;
+
+    transition: transform 0.25s ease;
+}
+
+.science-card:hover .science-card-arrow{
+    transform: translateX(8px);
+}
+
+
+
+/* =========================
+   СТУДЕНЧЕСКАЯ ЖИЗНЬ
+   ========================= */
+
+.student-life{
+    background: #ffffff;
+    color: var(--green-dark);
+    padding: 40px 0 30px;
+}
+
+.student-life-header{
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 30px;
+}
+
+.student-life h2{
+    max-width: 750px;
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(40px, 3.5vw, 54px);
+    line-height: 1;
+    letter-spacing: -1.5px;
+}
+
+.student-life h2 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.student-life-intro{
+    margin: 0;
+    color: #59645e;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Основной блок */
+
+.student-life-main{
+    display: grid;
+    grid-template-columns: 1.35fr 0.65fr;
+    min-height: 520px;
+}
+
+/* Фотография */
+
+
+
+.student-life-photo img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+
+    transition: transform 0.6s ease;
+}
+
+.student-life-photo:hover img{
+    transform: scale(1.03);
+}
+
+/* Список */
+
+.student-life-links{
+    display: flex;
+    flex-direction: column;
+    background: var(--green-dark);
+}
+
+.student-life-item{
+    position: relative;
+
+    flex: 1;
+    padding: 30px 35px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(200, 164, 61, 0.35);
+
+    transition: background 0.3s ease;
+}
+
+.student-life-item:last-child{
+    border-bottom: none;
+}
+
+.student-life-item:hover{
+    background: #0a4935;
+}
+
+/* Номер */
+
+.student-life-number{
+    color: #c8a43d;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Заголовок */
+
+.student-life-item h3{
+    margin: 20px 0 10px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    line-height: 1.1;
+}
+
+/* Описание */
+
+.student-life-item p{
+    max-width: 300px;
+    margin: 0;
+
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Стрелка */
+
+.student-life-arrow{
+    position: absolute;
+    right: 30px;
+    bottom: 28px;
+
+    color: #c8a43d;
+    font-size: 23px;
+
+    transition: transform 0.25s ease;
+}
+
+.student-life-item:hover .student-life-arrow{
+    transform: translateX(8px);
+}
+
+/* Нижняя строка */
+
+.student-life-bottom{
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 22px;
+
+    border-top: 1px solid #d6cfbd;
+
+    color: #59645e;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.student-life-photo{
+    position: relative;
+    overflow: hidden;
+}
+
+.student-slide{
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    transform: translateX(100%);
+    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+
+    z-index: 1;
+}
+
+.student-slide.active{
+    transform: translateX(0);
+    z-index: 2;
+}
+
+.student-slide.previous{
+    transform: translateX(-100%);
+    z-index: 1;
+}
+
+.student-life-dots{
+    position: absolute;
+    left: 32px;
+    bottom: 28px;
+
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    z-index: 5;
+}
+.student-dot{
+    width: 12px;
+    height: 12px;
+
+    padding: 0;
+    border: 1px solid #c8a43d;
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    transition:
+        width 0.3s ease,
+        height 0.3s ease,
+        background 0.3s ease;
+}
+
+.student-dot.active{
+    width: 36px;
+    height: 12px;
+
+    border-radius: 10px;
+    background: #c8a43d;
+}
+
+
+
+/* =========================
+   НОВОСТИ И СОБЫТИЯ
+========================= */
+
+.news{
+    background: #f6f4ee;
+    color: var(--green-dark);
+    padding: 50px 0 40px;
+}
+
+.news-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 20px;
+}
+
+.news h2{
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 3vw, 48px);
+    line-height: 0.98;
+    letter-spacing: -1.5px;
+}
+
+.news h2 span{
+    color: #c8a43d;
+}
+
+.news-all{
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    color: var(--green-dark);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #c8a43d;
+    transition: gap 0.25s ease;
+}
+
+.news-all span{
+    color: #c8a43d;
+    font-size: 21px;
+}
+
+.news-all:hover{
+    gap: 35px;
+}
+
+
+/* Основная сетка */
+
+.news-layout{
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 50px;
+}
+
+
+/* Главная новость */
+
+.news-feature{
+    display: grid;
+    grid-template-columns: 1fr;
+    background: #ffffff;
+    color: var(--green-dark);
+    text-decoration: none;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.news-feature:hover{
+    transform: translateY(-5px);
+}
+
+.news-feature-image{
+    height: 380px;
+    overflow: hidden;
+}
+
+.news-feature-image img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.news-feature:hover .news-feature-image img{
+    transform: scale(1.04);
+}
+
+.news-feature-content{
+    position: relative;
+    padding: 30px 35px 35px;
+}
+
+.news-date{
+    margin-bottom: 18px;
+    color: #c8a43d;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.news-feature-content h3{
+    max-width: 600px;
+    margin: 0 0 15px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    line-height: 1.08;
+}
+
+.news-feature-content p{
+    max-width: 520px;
+    margin: 0;
+    color: #59645e;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.news-arrow{
+    position: absolute;
+    right: 35px;
+    bottom: 30px;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #c8a43d;
+    border-radius: 50%;
+    color: #c8a43d;
+    font-size: 21px;
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.news-feature:hover .news-arrow{
+    background: #c8a43d;
+    color: var(--green-dark);
+    transform: translateX(5px);
+}
+
+
+/* Список новостей */
+
+.news-list{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #d6cfbd;
+}
+
+.news-item{
+    position: relative;
+    display: grid;
+    grid-template-columns: 70px 1fr 30px;
+    align-items: center;
+    gap: 25px;
+    min-height: 130px;
+    padding: 20px 0;
+    border-bottom: 1px solid #d6cfbd;
+    color: var(--green-dark);
+    text-decoration: none;
+    transition: padding 0.25s ease;
+}
+
+.news-item:hover{
+    padding-left: 10px;
+}
+
+.news-item-date{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.news-item-date strong{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    line-height: 1;
+}
+
+.news-item-date span{
+    margin-top: 5px;
+    color: #c8a43d;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.news-item-content > span{
+    color: #c8a43d;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+}
+
+.news-item-content h3{
+    margin: 8px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+    line-height: 1.15;
+}
+
+.news-item-arrow{
+    color: #c8a43d;
+    font-size: 22px;
+    transition: transform 0.25s ease;
+}
+
+.news-item:hover .news-item-arrow{
+    transform: translate(5px, -5px);
+}
+
+
+/* =========================
+   АБИТУРИЕНТАМ
+========================= */
+
+.applicants{
+    background: var(--green-dark);
+    color: #ffffff;
+    padding: 85px 0 65px;
+    
+}
+
+
+/* Верхняя часть */
+
+.applicants-top{
+    margin-top: -25px;
+    margin-bottom: 15px;
+}
+.applicants .section-label{
+    color: #c8a43d;
+    margin-bottom: 25px;
+}
+
+.applicants-title{
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 50px;
+    align-items: end;
+}
+.applicants h2{
+    max-width: none;
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(44px, 4.2vw, 62px);
+    line-height: 0.98;
+    letter-spacing: -1.5px;
+}
+
+.applicants h2 span{
+    color: #c8a43d;
+    white-space: nowrap;
+}
+.applicants-title p{
+    margin: 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* Основной блок */
+
+.applicants-main{
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    min-height: 500px;
+    border-top: 1px solid rgba(200, 164, 61, 0.4);
+    border-bottom: 1px solid rgba(200, 164, 61, 0.4);
+}
+
+/* Левая часть */
+
+.applicants-content{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 50px 55px 50px 0;
+    border-right: 1px solid rgba(200, 164, 61, 0.4);
+}
+
+
+
+.applicants-content h3{
+    max-width: 470px;
+    margin: 0 0 22px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 43px;
+    line-height: 1.05;
+}
+.applicants-content p{
+    max-width: 470px;
+    margin: 0 0 32px;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 16px;
+    line-height: 1.6;
+}
+.applicants-button{
+    width: fit-content;
+    color: #c8a43d;
+}
+
+
+
+.applicants-button:hover{
+    gap: 35px;
+}
+
+
+/* Правая навигация */
+
+.applicants-links{
+    display: flex;
+    flex-direction: column;
+}
+
+.applicants-link{
+    position: relative;
+    flex: 1;
+    display: grid;
+    grid-template-columns: 55px 1fr 30px;
+    align-items: center;
+    gap: 25px;
+    padding: 25px 0 25px 45px;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(200, 164, 61, 0.25);
+    transition:
+        background 0.3s ease,
+        padding-left 0.3s ease;
+}
+
+.applicants-link:last-child{
+    border-bottom: none;
+}
+
+.applicants-link:hover{
+    background: #0a4935;
+    padding-left: 55px;
+}
+
+.applicants-link-number{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+}
+
+.applicants-link-label{
+    color: #c8a43d;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.applicants-link h4{
+    margin: 8px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 29px;
+    line-height: 1.1;
+}
+.applicants-link-arrow{
+    color: #c8a43d;
+    font-size: 23px;
+    transition: transform 0.25s ease;
+}
+
+.applicants-link:hover .applicants-link-arrow{
+    transform: translate(5px, -5px);
+}
+
+
+/* Нижняя линия */
+
+.applicants-bottom{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 22px;
+    color: rgba(255, 255, 255, 0.45);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   ПРЕПОДАВАТЕЛИ
+========================= */
+
+.teachers{
+    background: #f6f4ee;
+    color: var(--green-dark);
+    padding: 40px 0 30px;
+}
+
+.teachers-container{
+    width: calc(100% - 150px);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* Верхняя строка */
+
+.teachers-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.teachers .section-label{
+    color: #c8a43d;
+}
+
+.teachers-all{
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    color: var(--green-dark);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #c8a43d;
+    transition: gap 0.25s ease;
+}
+
+.teachers-all span{
+    color: #c8a43d;
+    font-size: 21px;
+}
+
+.teachers-all:hover{
+    gap: 35px;
+}
+
+
+/* Основной блок */
+
+.teachers-main{
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    min-height: 560px;
+}
+
+
+/* Фотография */
+
+.teachers-photo{
+    overflow: hidden;
+}
+
+.teachers-photo img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.teachers-photo:hover img{
+    transform: scale(1.03);
+}
+
+
+/* Контент */
+
+.teachers-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 55px 60px;
+    background: var(--green-dark);
+    color: #ffffff;
+    box-sizing: border-box;
+}
+
+.teachers-label{
+    margin-bottom: 28px;
+    color: #c8a43d;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.teachers h2{
+    max-width: 550px;
+    margin: 0 0 25px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 4vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -1.5px;
+}
+
+.teachers h2 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.teachers-lead{
+    max-width: 440px;
+    margin: 0 0 40px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* Направления */
+
+.teachers-directions{
+    border-top: 1px solid rgba(200, 164, 61, 0.35);
+}
+
+.teachers-direction{
+    display: grid;
+    grid-template-columns: 45px 1fr;
+    gap: 20px;
+    align-items: center;
+    min-height: 58px;
+    border-bottom: 1px solid rgba(200, 164, 61, 0.25);
+}
+
+.teachers-direction span{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+}
+
+.teachers-direction strong{
+    font-size: 15px;
+    font-weight: 600;
+}
+
+
+/* Нижняя строка */
+
+.teachers-bottom{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 20px;
+    color: #59645e;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+
+/* =========================
+   ПРАКТИКА И ПАРТНЁРЫ
+========================= */
+
+.practice{
+    background: #ffffff;
+    color: var(--green-dark);
+    padding: 50px 0 35px;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.practice-container{
+    width: calc(100% - 150px);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* Верхняя строка */
+
+.practice-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.practice .section-label{
+    color: #c8a43d;
+}
+
+.practice-all{
+    display: inline-flex;
+    align-items: center;
+    gap: 25px;
+    color: var(--green-dark);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #c8a43d;
+    transition: gap 0.25s ease;
+}
+
+.practice-all span{
+    color: #c8a43d;
+    font-size: 21px;
+}
+
+.practice-all:hover{
+    gap: 35px;
+}
+
+
+/* Заголовок */
+
+.practice-intro{
+    display: grid;
+    grid-template-columns: 8px 1fr 420px;
+    gap: 35px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.practice-line{
+    width: 3px;
+    height: 135px;
+    background: #c8a43d;
+}
+
+.practice-intro h2{
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 4.5vw, 68px);
+    line-height: 0.95;
+    letter-spacing: -1.8px;
+}
+
+.practice-intro h2 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.practice-intro p{
+    margin: 0;
+    color: #59645e;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* Список разделов */
+
+.practice-links{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #d6cfbd;
+    border-left: 1px solid #d6cfbd;
+}
+
+.practice-link{
+    min-height: 125px;
+    padding: 28px 30px;
+    display: grid;
+    grid-template-columns: 55px 1fr 35px;
+    gap: 22px;
+    align-items: center;
+
+    border-right: 1px solid #d6cfbd;
+    border-bottom: 1px solid #d6cfbd;
+
+    color: var(--green-dark);
+    text-decoration: none;
+    box-sizing: border-box;
+
+    transition:
+        background 0.3s ease,
+        padding-left 0.3s ease;
+}
+
+.practice-link:hover{
+    background: #f6f4ee;
+    padding-left: 38px;
+}
+
+
+/* Последний пункт на всю ширину */
+
+.practice-link-wide{
+    grid-column: 1 / -1;
+}
+
+
+.practice-number{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+}
+
+
+.practice-link-content > span{
+    color: #c8a43d;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+
+.practice-link h3{
+    margin: 8px 0 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    line-height: 1.08;
+}
+
+
+.practice-arrow{
+    color: #c8a43d;
+    font-size: 25px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.practice-link:hover .practice-arrow{
+    transform: translate(5px, -5px);
+}
+
+
+/* Нижняя строка */
+
+.practice-bottom{
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 18px;
+
+    color: #59645e;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+
+.departments{
+    background: #f6f4ee;
+    color: var(--green-dark);
+    padding: 80px 0 40px;
+}
+
+.departments-container{
+    width: calc(100% - 150px);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* Верхняя часть */
+
+.departments-header{
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 55px;
+}
+
+.departments-title h2{
+    max-width: 780px;
+    margin: 18px 0 25px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(46px, 4.5vw, 68px);
+    line-height: 0.95;
+    letter-spacing: -2px;
+}
+
+.departments-title h2 span{
+    display: block;
+}
+
+.departments-title h2 span:first-child{
+    color: var(--green-dark);
+}
+
+.departments-title h2 span:last-child{
+    color: #c8a43d;
+}
+.departments-title p{
+    max-width: 560px;
+    margin: 0;
+
+    color: #59645e;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* Число справа */
+
+.departments-mark{
+    height: 150px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding-left: 25px;
+
+    border-left: 1px solid #c8a43d;
+}
+
+.departments-mark span{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 72px;
+    line-height: 1;
+    color: var(--green-dark);
+}
+
+.departments-mark small{
+    color: #59645e;
+    font-size: 10px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+
+
+/* Список кафедр */
+
+.departments-list{
+    border-top: 1px solid #d6cfbd;
+}
+
+.department-item{
+    min-height: 105px;
+
+    display: grid;
+    grid-template-columns: 70px 1fr 50px;
+    align-items: center;
+    gap: 30px;
+
+    padding: 20px 25px;
+
+    border-bottom: 1px solid #d6cfbd;
+
+    color: var(--green-dark);
+    text-decoration: none;
+
+    box-sizing: border-box;
+
+    transition:
+        background 0.3s ease,
+        padding-left 0.3s ease;
+}
+
+.department-item:hover{
+    background: var(--green-dark);
+    color: #ffffff;
+    padding-left: 35px;
+}
+
+
+/* Номер */
+
+.department-number{
+    color: #c8a43d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+}
+
+
+/* Название */
+
+.department-name{
+    max-width: 850px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    line-height: 1.15;
+}
+
+
+/* Стрелка */
+
+.department-arrow{
+    justify-self: end;
+
+    color: #c8a43d;
+    font-size: 25px;
+
+    transition:
+        transform 0.25s ease;
+}
+
+.department-item:hover .department-arrow{
+    transform: translate(6px, -5px);
+}
+
+
+/* Нижняя строка */
+
+.departments-bottom{
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 22px;
+
+    color: #59645e;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.contacts{
+    background: var(--green-dark);
+    color: #ffffff;
+    padding: 35px 0 20px;
+    height: 100vh;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+.contacts-container{
+    width: calc(100% - 150px);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   ШАПКА
+========================= */
+
+.contacts-header{
+    display: grid;
+    grid-template-columns: 1fr 430px;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 30px;
+}
+.contacts .section-label{
+    color: #c8a43d;
+}
+
+.contacts h2{
+    margin: 12px 0 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(46px, 4.5vw, 68px);
+    line-height: 0.9;
+    letter-spacing: -2px;
+}
+
+.contacts h2 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.contacts-intro{
+    margin: 0;
+
+    color: rgba(255,255,255,0.65);
+
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* =========================
+   ОСНОВНОЙ БЛОК
+========================= */
+
+.contacts-main{
+    display: grid;
+    grid-template-columns: 1.45fr 0.55fr;
+
+    border-top: 1px solid rgba(200,164,61,0.4);
+    border-bottom: 1px solid rgba(200,164,61,0.4);
+}
+
+
+/* =========================
+   КОНТАКТНАЯ ИНФОРМАЦИЯ
+========================= */
+
+.contacts-info{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.contact-item{
+    min-height: 145px;
+
+    padding: 22px 35px 22px 0;
+
+    border-right: 1px solid rgba(255,255,255,0.12);
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+
+    box-sizing: border-box;
+}
+
+.contact-item:nth-child(2n){
+    padding-left: 35px;
+    border-right: none;
+}
+
+.contact-item:nth-child(3), .contact-item:nth-child(4){
+    border-bottom: none;
+}
+
+
+.contact-label{
+    display: block;
+
+    margin-bottom: 22px;
+
+    color: #c8a43d;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+.contact-item h3{
+    max-width: 430px;
+
+    margin: 0 0 10px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+    line-height: 1.15;
+}
+
+
+.contact-item p{
+    margin: 0;
+
+    color: rgba(255,255,255,0.55);
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+.contact-item a{
+    display: block;
+
+    width: fit-content;
+
+    margin-bottom: 8px;
+
+    color: #ffffff;
+    text-decoration: none;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 21px;
+
+    transition: color 0.25s ease;
+}
+
+.contact-item a:hover{
+    color: #c8a43d;
+}
+
+
+/* =========================
+   ПРАВАЯ ПАНЕЛЬ
+========================= */
+
+.contacts-side{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    padding: 22px 30px;
+
+    background: #073b2b;
+
+    box-sizing: border-box;
+}
+
+
+.contacts-side-top{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+
+
+.contacts-side-top span{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 65px;
+    line-height: 0.9;
+
+    color: #c8a43d;
+}
+
+
+.contacts-side-top small{
+    color: rgba(255,255,255,0.5);
+
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1.5;
+    letter-spacing: 2px;
+}
+
+
+.contacts-side-label{
+    margin-bottom: 15px;
+
+    color: #c8a43d;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+.contacts-side-content h3{
+    margin: 0 0 28px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
+    line-height: 1.05;
+}
+
+
+.contacts-button{
+    display: inline-flex;
+    align-items: center;
+    gap: 22px;
+
+    color: #c8a43d;
+    text-decoration: none;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    transition: gap 0.25s ease;
+}
+
+.contacts-button span{
+    font-size: 21px;
+}
+
+.contacts-button:hover{
+    gap: 32px;
+}
+
+
+/* =========================
+   ФОТО
+========================= */
+
+.contacts-photo{
+    position: relative;
+
+    height: 200px;
+
+    margin-top: 20px;
+
+    overflow: hidden;
+}
+
+
+.contacts-photo img{
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+    object-position: center 55%;
+
+    transition: transform 0.6s ease;
+}
+
+
+.contacts-photo:hover img{
+    transform: scale(1.03);
+}
+
+
+.contacts-photo::after{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: linear-gradient(
+        to top,
+        rgba(0,0,0,0.65),
+        transparent 60%
+    );
+
+    pointer-events: none;
+}
+
+
+.contacts-photo-overlay{
+    position: absolute;
+
+    left: 30px;
+    bottom: 25px;
+
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+
+.contacts-photo-overlay span{
+    color: #c8a43d;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+.contacts-photo-overlay strong{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+}
+
+
+/* =========================
+   НИЖНЯЯ СТРОКА
+========================= */
+
+.contacts-bottom{
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 20px;
+
+    color: rgba(255,255,255,0.4);
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+.footer{
+    background: #041f18;
+    color: #ffffff;
+    padding: 55px 0 25px;
+}
+
+.footer-container{
+    width: calc(100% - 150px);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   ОСНОВНАЯ ЧАСТЬ
+========================= */
+
+.footer-main{
+    display: grid;
+    grid-template-columns: 1.5fr 0.8fr 0.8fr 1fr;
+    gap: 70px;
+
+    padding-bottom: 50px;
+
+    border-bottom: 1px solid rgba(200,164,61,0.35);
+}
+
+
+/* =========================
+   БРЕНД
+========================= */
+
+.footer-brand{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-logo{
+    width: 115px;
+    height: 115px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 12px;
+}
+
+.footer-logo img{
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: contain;
+}
+
+.footer-brand-text{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.footer-brand-text strong{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    line-height: 1.1;
+}
+
+.footer-brand-text span{
+    max-width: 250px;
+
+    color: rgba(255,255,255,0.5);
+
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.footer-brand p{
+    margin: 28px 0 0;
+
+    color: #c8a43d;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   КОЛОНКИ
+========================= */
+
+.footer-column, .footer-contact{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.footer-title{
+    display: block;
+
+    margin-bottom: 22px;
+
+    color: #c8a43d;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.footer-column a{
+    margin-bottom: 11px;
+
+    color: rgba(255,255,255,0.65);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition:
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+.footer-column a:hover{
+    color: #ffffff;
+    transform: translateX(4px);
+}
+
+
+/* =========================
+   КОНТАКТЫ
+========================= */
+
+.footer-contact > a{
+    margin-bottom: 10px;
+
+    color: #ffffff;
+
+    text-decoration: none;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+
+    transition: color 0.2s ease;
+}
+
+.footer-contact > a:hover{
+    color: #c8a43d;
+}
+
+.footer-contact p{
+    margin: 12px 0 0;
+
+    color: rgba(255,255,255,0.5);
+
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+
+/* =========================
+   НИЖНЯЯ СТРОКА
+========================= */
+
+.footer-bottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding-top: 22px;
+
+    color: rgba(255,255,255,0.35);
+
+    font-size: 10px;
+    letter-spacing: 0.5px;
+}
+
+.footer-bottom-links{
+    display: flex;
+    gap: 30px;
+}
+
+.footer-bottom-links a{
+    color: rgba(255,255,255,0.35);
+
+    text-decoration: none;
+
+    transition: color 0.2s ease;
+}
+
+.footer-bottom-links a:hover{
+    color: #c8a43d;
+}
+
+.nav-dropdown{
+    position: relative;
+}
+
+.nav-dropdown-button{
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 0;
+    margin: 0;
+
+    border: none;
+    outline: none;
+    background: transparent;
+
+    color: white;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    cursor: pointer;
+}
+
+.nav-dropdown-button span{
+    color: #c8a43d;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+
+    transition: transform 0.25s ease;
+}
+/* Выпадающее меню */
+
+.nav-dropdown-menu{
+    position: absolute;
+
+    top: calc(100% + 20px);
+    left: 50%;
+
+    width: 270px;
+
+    padding: 8px 0;
+
+    background: #062f23;
+
+    border: 1px solid rgba(200,164,61,0.45);
+
+    box-shadow: 0 15px 35px rgba(0,0,0,0.18);
+
+    opacity: 0;
+    visibility: hidden;
+
+    transform: translate(-50%, -8px);
+
+    transition:
+        opacity 0.25s ease,
+        transform 0.25s ease,
+        visibility 0.25s ease;
+
+    z-index: 100;
+}
+
+
+/* Показываем при наведении */
+
+.nav-dropdown:hover .nav-dropdown-menu{
+    opacity: 1;
+    visibility: visible;
+
+    transform: translate(-50%, 0);
+}
+
+.nav-dropdown:hover .nav-dropdown-button span{
+    transform: rotate(180deg);
+}
+
+
+/* Пункты */
+
+.nav-dropdown-menu a{
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 13px 18px;
+
+    color: rgba(255,255,255,0.78);
+
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        padding-left 0.2s ease;
+}
+
+.nav-dropdown-menu a span{
+    color: #c8a43d;
+
+    font-size: 18px;
+
+    transition: transform 0.2s ease;
+}
+
+.nav-dropdown-menu a:hover{
+    background: #073b2b;
+    color: #ffffff;
+
+    padding-left: 23px;
+}
+
+.nav-dropdown-menu a:hover span{
+    transform: translateX(5px);
+}
+
+
+
+
+/* =====================================================
+   СТРАНИЦА АБИТУРИЕНТАМ
+   ===================================================== */
+
+.applicants-hero{
+    position: relative;
+    min-height: 560px;
+    display: flex;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 45, 33, 0.99) 0%,
+            rgba(3, 45, 33, 0.98) 32%,
+            rgba(3, 45, 33, 0.94) 45%,
+            rgba(3, 45, 33, 0.78) 60%,
+            rgba(3, 45, 33, 0.48) 75%,
+            rgba(3, 45, 33, 0.25) 100%
+        ),
+        url("images/kolona.webp");
+
+    background-size: 125% auto;
+    background-position: 78% bottom;
+    background-repeat: no-repeat;
+
+    color: #fff;
+    padding: 125px 0 90px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+.applicants-hero-container{
+    position: relative;
+    z-index: 2;
+
+    width: calc(100% - 150px);
+    max-width: 1400px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.applicants-container{
+    width: calc(100% - 150px);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.applicants-hero .section-label{
+    color: #c8a43d;
+    margin-bottom: 25px;
+}
+
+.applicants-hero h1{
+    max-width: 700px;
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(48px, 4.5vw, 68px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+.applicants-hero h1 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.applicants-hero p{
+    max-width: 610px;
+    margin: 35px 0 0;
+    color: rgba(255,255,255,0.7);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* =====================================================
+   ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ
+   ===================================================== */
+
+.applicants-education{
+    background: #f6f4ee;
+    color: var(--green-dark);
+    padding: 60px 0 90px;
+}
+
+.applicants-section-header{
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 50px;
+}
+
+.applicants-section-header h2{
+    max-width: 800px;
+    margin: 15px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(45px, 4.5vw, 68px);
+    line-height: 0.95;
+    letter-spacing: -2px;
+}
+
+.applicants-section-header h2 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.applicants-section-header p{
+    margin: 0;
+    color: #59645e;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* СПИСОК ПРОГРАММ */
+
+.program-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #d6cfbd;
+    border-left: 1px solid #d6cfbd;
+}
+
+.program-item{
+    position: relative;
+    min-height: 230px;
+    padding: 30px 35px;
+    display: grid;
+    grid-template-columns: 55px 1fr 40px;
+    gap: 25px;
+    align-items: start;
+
+    border-right: 1px solid #d6cfbd;
+    border-bottom: 1px solid #d6cfbd;
+
+    color: var(--green-dark);
+    text-decoration: none;
+
+    box-sizing: border-box;
+
+    transition:
+        background 0.3s ease,
+        padding-left 0.3s ease;
+}
+
+.program-item:hover{
+    background: #ebe7dc;
+    padding-left: 43px;
+}
+
+.program-number{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+}
+
+.program-content > span{
+    color: #c8a43d;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.program-content h3{
+    margin: 15px 0 10px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    line-height: 1.05;
+}
+
+.program-content p{
+    max-width: 430px;
+    margin: 0;
+    color: #59645e;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.program-arrow{
+    color: #c8a43d;
+    font-size: 25px;
+    transition: transform 0.25s ease;
+}
+
+.program-item:hover .program-arrow{
+    transform: translate(6px, -6px);
+}
+
+
+/* =====================================================
+   ПОСТУПЛЕНИЕ
+   ===================================================== */
+
+.applicants-info{
+    background: var(--green-dark);
+    color: #ffffff;
+    padding: 60px 0 70px;
+}
+
+.applicants-info-header{
+    margin-bottom: 50px;
+}
+
+.applicants-info-header .section-label{
+    color: #c8a43d;
+}
+
+.applicants-info-header h2{
+    margin: 15px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(45px, 4.5vw, 68px);
+    line-height: 0.95;
+    letter-spacing: -2px;
+}
+
+.applicants-info-header h2 span{
+    color: #c8a43d;
+}
+
+
+/* СПИСОК ПОСТУПЛЕНИЯ */
+
+.admission-list{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-top: 1px solid rgba(200,164,61,0.4);
+    border-left: 1px solid rgba(200,164,61,0.4);
+}
+
+.admission-item{
+    position: relative;
+    min-height: 230px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-right: 1px solid rgba(200,164,61,0.4);
+    border-bottom: 1px solid rgba(200,164,61,0.4);
+
+    color: #ffffff;
+    text-decoration: none;
+
+    transition: background 0.3s ease;
+}
+
+.admission-item:hover{
+    background: #0a4935;
+}
+
+.admission-item > span{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+}
+
+.admission-item h3{
+    max-width: 320px;
+    margin: 0 0 12px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    line-height: 1.08;
+}
+
+.admission-item p{
+    max-width: 330px;
+    margin: 0;
+    color: rgba(255,255,255,0.65);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.admission-item > strong{
+    position: absolute;
+    right: 30px;
+    bottom: 25px;
+
+    color: #c8a43d;
+    font-size: 24px;
+    font-weight: 400;
+
+    transition: transform 0.25s ease;
+}
+
+.admission-item:hover > strong{
+    transform: translateX(8px);
+}
+
+
+/* =====================================================
+   АДАПТИВНОСТЬ
+   ===================================================== */
+
+@media (max-width: 1000px) {
+
+    .applicants-hero-container, .applicants-container{
+        width: calc(100% - 60px);
+    }
+
+    .applicants-section-header{
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .program-list{
+        grid-template-columns: 1fr;
+    }
+
+    .admission-list{
+        grid-template-columns: 1fr;
+    }
+}
+
+
+@media (max-width: 700px) {
+
+    .applicants-hero-container, .applicants-container{
+        width: calc(100% - 40px);
+    }
+
+    .applicants-hero{
+        padding: 70px 0;
+    }
+
+    .applicants-hero h1{
+        font-size: 48px;
+        letter-spacing: -1.5px;
+    }
+
+    .program-item{
+        grid-template-columns: 45px 1fr 30px;
+        padding: 25px 20px;
+    }
+
+    .program-content h3{
+        font-size: 27px;
+    }
+
+    .applicants-education, .applicants-info{
+        padding: 60px 0;
+    }
+}
+
+
+.applicants-hero-buttons{
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-top: 32px;
+}
+
+.applicants-button{
+    min-width: 235px;
+    height: 58px;
+    padding: 0 25px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    box-sizing: border-box;
+
+    border-radius: 4px;
+
+    font-size: 15px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+        background 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.applicants-button span{
+    font-size: 21px;
+    transition: transform 0.25s ease;
+}
+
+.applicants-button:hover{
+    transform: translateY(-2px);
+}
+
+.applicants-button:hover span{
+    transform: translateX(5px);
+}
+
+.applicants-button-primary{
+    background: #c8a43d;
+    color: #062f23;
+}
+
+.applicants-button-primary:hover{
+    background: #d5b34f;
+}
+
+.applicants-button-outline{
+    border: 1px solid #c8a43d;
+    color: #ffffff;
+    background: transparent;
+}
+
+.applicants-button-outline:hover{
+    background: rgba(200, 164, 61, 0.12);
+}
+
+.applicants-hero-mark{
+    position: absolute;
+    right: 4.5%;
+    top: 78%;
+    transform: translateY(-50%);
+    width: 210px;
+    color: rgba(255, 255, 255, 0.58);
+    z-index: 3;
+}
+
+.applicants-hero-mark-title{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 35px;
+    border-left: 2px solid #c8a43d;
+}
+
+.applicants-hero-mark-title span{
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 5px;
+    line-height: 1;
+}
+
+.applicants-hero-mark-line{
+    width: 62px;
+    height: 2px;
+    margin: 48px 0 22px auto;
+    background: #c8a43d;
+}
+
+.applicants-hero-mark-bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+
+    width: 100%;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    line-height: 1.4;
+    white-space: nowrap;
+}
+
+
+
+
+/* ========================================
+   СТРАНИЦА БАКАЛАВРИАТА
+======================================== */
+
+.education-container{
+    width: calc(100% - 150px);
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+
+/* HERO */
+
+.education-hero{
+    position: relative;
+    padding: 155px 0 90px;
+
+background:
+    linear-gradient(
+        90deg,
+        #042f23 0%,
+        rgba(4, 47, 35, 0.98) 28%,
+        rgba(4, 47, 35, 0.72) 50%,
+        rgba(4, 47, 35, 0.25) 70%,
+        rgba(4, 47, 35, 0.55) 100%
+    ),
+    url("images/femida-statue-clean.webp");
+
+background-size: 100% 100%, auto 115%;
+background-position: center, calc(100% + 70px) -45%;
+    background-repeat: no-repeat;
+
+    color: #ffffff;
+    overflow: hidden;
+}
+
+.education-hero-grid{
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 100px;
+    align-items: end;
+    margin-top: 25px;
+}
+
+.education-code{
+    margin-bottom: 12px;
+    color: #c8a43d;
+    font-size: 15px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.education-hero h1{
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(60px, 6vw, 90px);
+    line-height: .95;
+    letter-spacing: -3px;
+}
+
+.education-hero p{
+    max-width: 650px;
+    margin: 30px 0 0;
+    color: rgba(255,255,255,.68);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.education-hero-side{
+    padding-left: 15px;
+    border-left: 2px solid #c8a43d;
+    transform: translateX(155px);
+}
+
+.education-hero-side span{
+    display: block;
+    margin-bottom: 12px;
+    color: #c8a43d;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.education-hero-side strong{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 34px;
+    font-weight: 500;
+}
+
+
+/* ОБЩАЯ СЕКЦИЯ */
+
+
+
+
+
+.exams-section h2{
+    max-width: 750px;
+    margin: 15px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(45px, 4.5vw, 68px);
+    line-height: .95;
+    letter-spacing: -2px;
+}
+
+.exams-section h2 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.exams-header > p{
+    margin: 0;
+    color: #59645e;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+/* ПРОФИЛИ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ТЁМНАЯ СЕКЦИЯ */
+
+
+
+
+
+
+
+
+/* ФОРМЫ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ЭКЗАМЕНЫ */
+
+.exams-section{
+    padding: 50px 0 90px;
+    background: #ffffff;
+    color: var(--green-dark);
+}
+
+.exams-header{
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 55px;
+}
+
+.exam-list{
+    grid-template-columns: repeat(3, 1fr);
+    border-left: 1px solid #d6cfbd;
+}
+
+.exam-item{
+    border-right: 1px solid #d6cfbd;
+}
+
+
+
+
+
+.exam-item div > span{
+    color: #c8a43d;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.exam-item h3{
+    margin: 18px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    line-height: 1.1;
+}
+
+.exam-arrow{
+    position: absolute;
+    right: 28px;
+    top: 28px;
+}
+
+
+/* ДОКУМЕНТЫ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* АДАПТИВ */
+
+@media (max-width: 1000px) {
+
+    .education-container{
+        width: calc(100% - 60px);
+    }
+
+    .education-hero-grid, .exams-header{
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .exam-list{
+        grid-template-columns: 1fr;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .education-container{
+        width: calc(100% - 40px);
+    }
+
+    .education-hero{
+        padding: 125px 0 70px;
+    }
+
+    .exams-section{
+        padding: 60px 0;
+    }
+
+    .education-hero h1{
+        font-size: 52px;
+    }
+
+    .exam-item{
+        min-height: 190px;
+    }
+
+}
+
+
+/* =========================================
+   ОБРАЗОВАТЕЛЬНАЯ СТРУКТУРА
+   ========================================= */
+
+
+
+
+
+
+
+
+
+
+
+
+/* ДВЕ КОЛОНКИ */
+
+
+
+
+/* КОЛОНКА */
+
+.education-structure-column{
+    min-width: 0;
+}
+
+.education-structure-column + .education-structure-column{
+    border-left: 1px solid #d6cfbd;
+}
+
+
+/* ЗАГОЛОВОК КОЛОНКИ */
+
+
+
+
+/* СПИСОК */
+
+
+
+
+/* ЭЛЕМЕНТ */
+
+.education-structure-item{
+    position: relative;
+    color: var(--green-dark);
+}
+
+
+
+
+/* НОМЕР */
+
+
+
+
+/* КОД / ФОРМАТ */
+
+
+
+
+/* НАЗВАНИЕ */
+
+
+
+
+/* СТРЕЛКА */
+
+
+
+
+/* HOVER */
+
+
+
+
+
+
+/* АДАПТИВ */
+
+@media (max-width: 900px) {
+
+    .education-structure-header{
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .education-structure-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .education-structure-column + .education-structure-column{
+        border-left: none;
+        border-top: 1px solid #d6cfbd;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .education-structure{
+        padding: 65px 0 70px;
+    }
+
+    .education-structure-header h2{
+        font-size: 45px;
+    }
+
+    .education-structure-item{
+        grid-template-columns: 45px 1fr 30px;
+        padding: 22px 20px;
+    }
+
+    .education-structure-item:hover{
+        padding-left: 25px;
+    }
+
+    .education-structure-item h3{
+        font-size: 22px;
+    }
+
+}
+
+
+/* =========================================
+   ОБРАЗОВАТЕЛЬНАЯ СТРУКТУРА
+========================================= */
+
+.education-structure{
+    background: #f6f4ee;
+    color: var(--green-dark);
+    padding: 70px 0 75px;
+}
+
+.education-structure-header{
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 70px;
+    align-items: end;
+    margin-bottom: 40px;
+}
+
+.education-structure-header h2{
+    max-width: 800px;
+    margin: 12px 0 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 4vw, 60px);
+    line-height: .96;
+    letter-spacing: -2px;
+}
+
+.education-structure-header h2 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.education-structure-header p{
+    margin: 0;
+
+    color: #59645e;
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+
+/* ДВЕ КОЛОНКИ */
+
+.education-structure-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    border-top: 1px solid #d6cfbd;
+    border-left: 1px solid #d6cfbd;
+}
+
+.education-structure-column{
+    border-right: 1px solid #d6cfbd;
+}
+
+.education-structure-forms{
+    background: #ebe7dc;
+}
+
+
+/* ЗАГОЛОВКИ */
+
+.education-structure-label{
+    min-height: 65px;
+
+    padding: 0 28px;
+
+    display: flex;
+    align-items: center;
+
+    color: #c8a43d;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+
+    border-bottom: 1px solid #d6cfbd;
+}
+
+
+/* ЭЛЕМЕНТЫ */
+
+.education-structure-item{
+    min-height: 115px;
+
+    padding: 22px 28px;
+
+    display: grid;
+    grid-template-columns: 50px 1fr 30px;
+    gap: 18px;
+    align-items: center;
+
+    border-bottom: 1px solid #d6cfbd;
+
+    box-sizing: border-box;
+
+    transition:
+        background .25s ease,
+        padding-left .25s ease;
+}
+
+.education-structure-item:last-child{
+    border-bottom: none;
+}
+
+.education-structure-item:hover{
+    background: #f6f4ee;
+    padding-left: 35px;
+}
+
+
+/* НОМЕР */
+
+.education-structure-number{
+    color: #c8a43d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+}
+
+
+/* КОД */
+
+.education-structure-code{
+    display: block;
+
+    margin-bottom: 6px;
+
+    color: #c8a43d;
+
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+}
+
+
+/* НАЗВАНИЕ */
+
+.education-structure-item h3{
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    line-height: 1.1;
+}
+
+
+/* СТРЕЛКА */
+
+
+
+
+
+
+/* НИЖНЯЯ СТРОКА */
+
+
+
+
+
+
+
+
+/* АДАПТИВ */
+
+@media (max-width: 900px) {
+
+    .education-structure-header{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .education-structure-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .education-structure-forms{
+        border-top: 1px solid #d6cfbd;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .education-structure{
+        padding: 55px 0 60px;
+    }
+
+    .education-structure-header h2{
+        font-size: 42px;
+    }
+
+    .education-structure-item{
+        grid-template-columns: 42px 1fr 25px;
+        padding: 20px;
+    }
+
+    .education-structure-item:hover{
+        padding-left: 25px;
+    }
+
+    .education-structure-item h3{
+        font-size: 20px;
+    }
+
+}
+
+
+
+
+.education-structure-note{
+    font-size: 10px;
+    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: .8px;
+}
+
+
+/* ФОРМЫ ОБУЧЕНИЯ — ВЕРТИКАЛЬНЫЙ СПИСОК */
+
+.education-structure-forms{
+    display: block !important;
+}
+
+.education-structure-forms .education-structure-item{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 50px 1fr 30px;
+}
+
+
+/* СРОК ОБУЧЕНИЯ */
+
+.education-structure-duration{
+    margin: 8px 0 0;
+
+    color: #59645e;
+
+    font-size: 14px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+
+/* УТОЧНЕНИЕ ДЛЯ ОЧНО-ЗАОЧНОЙ */
+
+.education-structure-profile-note{
+    display: block;
+
+    margin-top: 5px;
+
+    color: #c8a43d;
+
+    font-size: 10px;
+    line-height: 1.3;
+    font-weight: 700;
+    letter-spacing: .8px;
+}
+
+.education-structure-note{
+    margin-left: 0 !important;
+    margin-right: auto !important;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+.education-structure-note > span{
+    margin: 0;
+}
+
+
+
+.education-structure-note{
+    width: 100% !important;
+    margin: 20px 0 0 !important;
+    padding: 0 !important;
+
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    gap: 20px;
+
+    color: #59645e;
+}
+
+.education-structure-note > span{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+    line-height: 1.1;
+}
+
+.education-structure-note p{
+    margin: 0 !important;
+    color: #59645e;
+    font-size: 13px;
+    line-height: 1.3;
+    font-weight: 600;
+}
+
+
+/* =========================================
+   ВСТУПИТЕЛЬНЫЕ ИСПЫТАНИЯ — НОВЫЙ ВИД
+========================================= */
+
+.exam-list{
+    display: flex;
+    flex-direction: column;
+
+    border-top: 1px solid #d6cfbd;
+}
+
+
+/* ОДНА СТРОКА */
+
+.exam-item{
+    position: relative;
+   
+    text-decoration: none;
+    color: var(--green-dark);
+
+
+    min-height: 120px;
+    padding: 25px 30px;
+
+    display: grid;
+    grid-template-columns: 70px 1fr 40px;
+    gap: 25px;
+    align-items: center;
+
+    border-bottom: 1px solid #d6cfbd;
+
+    box-sizing: border-box;
+
+    transition:
+        background .25s ease,
+        padding-left .25s ease;
+}
+
+
+/* НОМЕР */
+
+.exam-number{
+    color: #c8a43d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+}
+
+
+/* НАЗВАНИЕ */
+
+.exam-name > span{
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #c8a43d;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.exam-name h3{
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    line-height: 1.1;
+}
+
+
+/* СТРЕЛКА */
+
+.exam-arrow{
+    justify-self: end;
+
+    color: #c8a43d;
+
+    font-size: 26px;
+
+    transition: transform .25s ease;
+}
+
+
+/* HOVER */
+
+.exam-item:hover{
+    background: #f6f4ee;
+    padding-left: 40px;
+}
+
+.exam-item:hover .exam-arrow{
+    transform: translate(6px, -6px);
+}
+
+
+.exam-name small{
+    display: block;
+    margin-top: 8px;
+
+    color: #8a8f88;
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+
+
+/* =========================================
+   О БАКАЛАВРИАТЕ
+========================================= */
+
+.bachelor-about{
+    background: #ffffff;
+    color: var(--green-dark);
+    padding: 75px 0 80px;
+}
+
+.bachelor-about-header{
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 70px;
+    align-items: end;
+    margin-bottom: 50px;
+}
+
+.bachelor-about-header h2{
+    max-width: 760px;
+    margin: 14px 0 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(44px, 4.2vw, 62px);
+    line-height: .96;
+    letter-spacing: -2px;
+}
+
+.bachelor-about-header h2 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.bachelor-about-mark{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    padding-left: 25px;
+    border-left: 2px solid #c8a43d;
+}
+
+.bachelor-about-mark span{
+    color: #c8a43d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.bachelor-about-mark small{
+    margin-top: 8px;
+
+    color: #59645e;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+/* ОСНОВНОЙ ТЕКСТ */
+
+.bachelor-about-main{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    border-top: 1px solid #d6cfbd;
+    border-bottom: 1px solid #d6cfbd;
+}
+
+.bachelor-about-lead{
+    padding: 45px 55px 45px 0;
+
+    border-right: 1px solid #d6cfbd;
+}
+
+.bachelor-about-lead p{
+    max-width: 620px;
+
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 29px;
+    line-height: 1.22;
+    letter-spacing: -.5px;
+}
+
+.bachelor-about-text{
+    padding: 45px 0 45px 55px;
+}
+
+.bachelor-about-text p{
+    max-width: 570px;
+
+    margin: 0;
+
+    color: #59645e;
+
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+
+/* НИЖНИЙ АКЦЕНТ */
+
+.bachelor-about-bottom{
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 70px;
+
+    padding-top: 38px;
+}
+
+.bachelor-about-bottom-label{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.bachelor-about-bottom-label span{
+    color: #c8a43d;
+
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.bachelor-about-bottom-label strong{
+    max-width: 300px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    line-height: 1.15;
+}
+
+.bachelor-about-bottom p{
+    max-width: 700px;
+
+    margin: 0;
+
+    color: #59645e;
+
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+
+/* АДАПТИВ */
+
+@media (max-width: 900px) {
+
+    .bachelor-about-header{
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .bachelor-about-main{
+        grid-template-columns: 1fr;
+    }
+
+    .bachelor-about-lead{
+        padding: 35px 0;
+        border-right: none;
+        border-bottom: 1px solid #d6cfbd;
+    }
+
+    .bachelor-about-text{
+        padding: 35px 0;
+    }
+
+    .bachelor-about-bottom{
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .bachelor-about{
+        padding: 55px 0 60px;
+    }
+
+    .bachelor-about-header h2{
+        font-size: 42px;
+    }
+
+    .bachelor-about-lead p{
+        font-size: 25px;
+    }
+
+}
+
+
+/* =========================================
+   HERO — СПЕЦИАЛИТЕТ
+========================================= */
+
+.specialist-hero{
+    background:
+        linear-gradient(
+            90deg,
+            #042f23 0%,
+            rgba(4, 47, 35, 0.98) 28%,
+            rgba(4, 47, 35, 0.72) 50%,
+            rgba(4, 47, 35, 0.25) 70%,
+            rgba(4, 47, 35, 0.55) 100%
+        ),
+        url("images/gavel.jpg");
+
+    background-size: 100% 100%, 150% auto;
+
+    /* Фотографию немного смещаем вправо */
+    background-position: center, calc(100% + 400px) center;
+
+    background-repeat: no-repeat;
+}
+
+
+
+/* =========================================
+   ОБЗОР СПЕЦИАЛЬНОСТИ
+========================================= */
+
+
+
+
+
+
+/* HEADER */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* MAIN */
+
+
+
+
+
+
+
+
+
+
+/* FACTS */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* PROGRAMS */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* BOTTOM */
+
+
+
+
+/* =========================================================
+   МАГИСТРАТУРА
+   Стили страницы master.html
+========================================================= */
+
+/* О МАГИСТРАТУРЕ */
+.master-page .bachelor-about{
+    background: #ffffff;
+    padding: 80px 0 40px;
+    color: var(--green-dark);
+}
+
+.master-page .bachelor-about-header{
+    display: grid;
+    grid-template-columns: 1fr 390px;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 55px;
+}
+
+.master-page .bachelor-about-header h2{
+    max-width: 800px;
+    margin: 15px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(45px, 4.5vw, 68px);
+    line-height: .95;
+    letter-spacing: -2px;
+}
+
+.master-page .bachelor-about-header h2 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.master-page .bachelor-about-header > p{
+    margin: 0;
+    color: #59645e;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.master-page .bachelor-about-main{
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    border-top: 1px solid #d6cfbd;
+    border-bottom: 1px solid #d6cfbd;
+}
+
+.master-page .bachelor-about-lead{
+    padding: 45px 55px 45px 0;
+    border-right: 1px solid #d6cfbd;
+}
+
+.master-page .bachelor-about-lead p{
+    max-width: 760px;
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 29px;
+    line-height: 1.25;
+}
+
+.master-page .bachelor-about-text{
+    padding: 45px 0 45px 55px;
+}
+
+.master-page .bachelor-about-text p{
+    max-width: 480px;
+    margin: 0;
+    color: #59645e;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+.master-page .bachelor-about-bottom{
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 80px;
+    padding-top: 45px;
+}
+
+.master-page .bachelor-about-bottom-label span{
+    display: block;
+    margin-bottom: 15px;
+    color: #c8a43d;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.master-page .bachelor-about-bottom-label strong{
+    display: block;
+    max-width: 400px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    line-height: 1.15;
+}
+
+.master-page .bachelor-about-bottom > p{
+    max-width: 720px;
+    margin: 0;
+    color: #59645e;
+    font-size: 16px;
+    line-height: 1.65;
+}
+
+
+/* ФОРМЫ ОБУЧЕНИЯ */
+.master-page .master-forms{
+
+background: #f6f4ee;
+    padding: 70px 0 35px;
+
+    color: var(--green-dark);
+
+}
+.master-page .master-forms-grid{
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 60px;
+}
+
+.master-page .master-forms-title h2{
+    max-width: 500px;
+
+    margin: 15px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(40px, 3.5vw, 54px);
+
+    line-height: 0.98;
+    letter-spacing: -1.5px;
+}
+
+.master-page .master-forms-title h2 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.master-page .master-forms-intro{
+    max-width: 380px;
+    margin: 25px 0 0;
+    color: #59645e;
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+.master-page .master-forms-content{
+    border-top: 1px solid #d6cfbd;
+}
+
+.master-page .master-form-item{
+    display: grid;
+    grid-template-columns: 70px 1fr 35px;
+    gap: 25px;
+    align-items: center;
+    min-height: 105px;
+    padding: 20px 0;
+    border-bottom: 1px solid #d6cfbd;
+    transition: background .25s ease, padding-left .25s ease;
+}
+
+.master-page .master-form-item:hover{
+    background: #f6f4ee;
+    padding-left: 15px;
+}
+
+.master-page .master-form-number{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 25px;
+}
+
+.master-page .master-form-info{
+    padding: 15px 0;
+}
+
+.master-page .master-form-duration{
+    margin-bottom: 8px;
+    color: var(--green-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 42px;
+    line-height: 1;
+}
+
+.master-page .master-form-item h3{
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+    line-height: 1.15;
+}
+
+.master-page .master-form-item p{
+    margin: 6px 0 0;
+    color: #59645e;
+    font-size: 13px;
+}
+
+
+
+
+
+
+/* ОБРАЗОВАТЕЛЬНЫЕ ПРОГРАММЫ */
+.master-page .master-programs{
+background: #eeeade;
+    padding: 70px 0 70px;
+    color: var(--green-dark);
+}
+
+.master-page .master-programs-header{
+    display: grid;
+    grid-template-columns: 1fr 400px;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 50px;
+}
+
+.master-programs-header h2{
+    max-width: 800px;
+
+    margin: 15px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+
+font-size: clamp(40px, 3.6vw, 54px);
+    line-height: 0.98;
+
+    letter-spacing: -1.5px;
+}
+
+.master-page .master-programs-header h2 span{
+    display: inline;
+    color: var(--gold);
+    white-space: nowrap;
+}
+
+.master-page .master-programs-header p{
+    margin: 0;
+    color: #59645e;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.master-page .master-program-list{
+    border-top: 1px solid #d6cfbd;
+}
+
+.master-page .master-program{
+    display: grid;
+    grid-template-columns: 80px 1fr 270px 40px;
+    gap: 24px;
+    align-items: center;
+
+    min-height: 145px;
+    padding: 22px 24px;
+
+    border-bottom: 1px solid #d6cfbd;
+    text-decoration: none;
+
+    box-sizing: border-box;
+
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
+}
+
+.master-page .master-program:hover{
+    background: rgba(255, 255, 255, 0.45);
+    transform: translateX(6px);
+}
+.master-page .master-program-number{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 30px;
+}
+
+.master-page .master-program-content h3{
+    max-width: 650px;
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 31px;
+    line-height: 1.1;
+}
+
+.master-page .master-program-content p{
+    max-width: 650px;
+    margin: 12px 0 0;
+    color: #59645e;
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.master-page .master-program-leader{
+    padding-left: 30px;
+    border-left: 1px solid #d6cfbd;
+}
+
+.master-page .master-program-leader span{
+    display: block;
+    margin-bottom: 8px;
+    color: #c8a43d;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 1.8px;
+}
+
+.master-page .master-program-leader strong{
+    display: block;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.master-page .master-program-arrow{
+    color: #c8a43d;
+    font-size: 25px;
+    transition: transform .25s ease;
+}
+
+.master-page .master-program:hover .master-program-arrow{
+    transform: translate(6px, -6px);
+}
+
+
+/* ВСТУПИТЕЛЬНЫЕ ИСПЫТАНИЯ */
+.master-page .master-exam{
+    background: var(--green-dark);
+    color: #ffffff;
+    padding: 65px 0 70px;
+}
+.master-page .master-exam-header{
+    display: grid;
+    grid-template-columns: 1fr 430px;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 40px;
+}
+
+.master-page .master-exam-header h2{
+    max-width: 850px;
+    margin: 15px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+font-size: clamp(46px, 4.7vw, 70px);
+    line-height: .95;
+    letter-spacing: -2px;
+}
+
+.master-page .master-exam-header h2 span{
+    color: #c8a43d;
+}
+
+.master-page .master-exam-header p{
+    margin: 0;
+    color: rgba(255,255,255,.65);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.master-page .master-exam-card{
+    display: grid;
+    grid-template-columns: 110px 1fr 50px;
+    gap: 30px;
+    align-items: center;
+    min-height: 165px;
+padding: 30px 40px;
+    border: 1px solid rgba(200, 164, 61, 0.45);
+    border-top: 1px solid rgba(200,164,61,.45);
+    border-bottom: 1px solid rgba(200,164,61,.45);
+    background: #0a4635;
+    text-decoration: none;
+    transition: background .3s ease;
+}
+
+.master-page .master-exam-card:hover{
+    background: #0a4935;
+}
+
+.master-page .master-exam-number{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 50px;
+}
+
+.master-page .master-exam-name span{
+    display: block;
+    margin-bottom: 10px;
+    color: #c8a43d;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.master-page .master-exam-name h3{
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 36px;
+    line-height: 1.05;
+}
+
+.master-page .master-exam-name small{
+    display: block;
+    margin-top: 12px;
+    color: rgba(255,255,255,.5);
+    font-size: 13px;
+}
+
+.master-page .master-exam-arrow{
+    color: #c8a43d;
+    font-size: 28px;
+    transition: transform .25s ease;
+}
+
+.master-page .master-exam-card:hover .master-exam-arrow{
+    transform: translate(6px, -6px);
+}
+
+.master-page .master-exam-place{
+    margin-top: 35px;
+    color: rgba(255,255,255,.55);
+    font-size: 14px;
+}
+
+.master-page .master-exam-place strong{
+    color: #ffffff;
+    font-weight: 600;
+}
+
+
+/* АДАПТИВ МАГИСТРАТУРЫ */
+@media (max-width: 1100px) {
+    .master-page .bachelor-about-header, .master-page .master-programs-header, .master-page .master-exam-header{
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .master-page .master-forms-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .master-page .master-program{
+        grid-template-columns: 60px 1fr 230px 30px;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 900px) {
+    .master-page .bachelor-about-main{
+        grid-template-columns: 1fr;
+    }
+
+    .master-page .bachelor-about-lead{
+        border-right: none;
+        border-bottom: 1px solid #d6cfbd;
+        padding-right: 0;
+    }
+
+    .master-page .bachelor-about-text{
+        padding-left: 0;
+    }
+
+    .master-page .bachelor-about-bottom{
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+}
+
+@media (max-width: 800px) {
+    .master-page .master-program{
+        grid-template-columns: 50px 1fr 30px;
+    }
+
+    .master-page .master-program-leader{
+        grid-column: 2 / 3;
+        padding-left: 0;
+        padding-top: 20px;
+        border-left: none;
+        border-top: 1px solid #d6cfbd;
+    }
+
+    .master-page .master-exam-card{
+        grid-template-columns: 70px 1fr 30px;
+        padding: 30px;
+    }
+
+    .master-page .master-exam-name h3{
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 600px) {
+    .master-page .bachelor-about{
+        padding: 55px 0 60px;
+    }
+
+    .master-page .bachelor-about-header h2, .master-page .master-programs-header h2, .master-page .master-exam-header h2{
+        font-size: 42px;
+    }
+
+    .master-page .bachelor-about-lead p{
+        font-size: 25px;
+    }
+
+    .master-page .master-form-item{
+        grid-template-columns: 42px 1fr 25px;
+        gap: 15px;
+    }
+
+    .master-page .master-form-duration{
+        font-size: 34px;
+    }
+}
+
+
+/* Фикс цветов магистратуры */
+/* Фикс цвета текста экзамена */
+.master-page .master-exam h3{
+    color: #ffffff;
+}
+
+.master-page .master-exam .exam-number{
+    color: #c8a43d;
+}
+
+.master-page .master-exam .exam-name > span{
+    color: #c8a43d;
+}
+
+.master-page .master-exam .exam-name small{
+    color: rgba(255, 255, 255, 0.65);
+}
+
+/* ФИНАЛЬНАЯ ЦВЕТОВАЯ НАСТРОЙКА МАГИСТРАТУРЫ */
+
+.master-page .master-programs h3{
+    color: #042f23 !important;
+}
+
+
+
+.master-page .master-programs .program-number{
+    color: #c8a43d !important;
+}
+
+
+/* Цвет имён руководителей магистерских программ */
+.master-page .master-program-leader strong{
+    color: #042f23 !important;
+}
+
+.master-page .master-hero{
+    background:
+        linear-gradient(
+            90deg,
+            #042f23 0%,
+            rgba(4, 47, 35, 0.98) 25%,
+            rgba(4, 47, 35, 0.72) 50%,
+            rgba(4, 47, 35, 0.38) 72%,
+            rgba(4, 47, 35, 0.32) 100%
+        ),
+        url("images/master-hero.png");
+
+    background-size: 100% 100%, cover;
+    background-position: center, center;
+    background-repeat: no-repeat;
+}
+/* =========================================================
+   МАГИСТЕРСКИЕ ПРОГРАММЫ — ВНУТРЕННИЕ СТРАНИЦЫ
+========================================================= */
+.program-page{background:#fff;color:var(--green-dark)}
+.program-hero{position:relative;min-height:590px;display:flex;align-items:center;overflow:hidden;background:#042f23;color:#fff}
+.program-hero-bg{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            #042f23 0%,
+            rgba(4,47,35,.98) 25%,
+            rgba(4,47,35,.78) 48%,
+            rgba(4,47,35,.38) 70%,
+            rgba(4,47,35,.28) 100%
+        ),
+        url("images/courtroom-hero.png") center/cover no-repeat;
+}
+.program-hero-inner{
+    position: relative;
+    z-index: 1;
+    padding: 145px 0 85px;
+}
+
+.program-hero-grid{
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 100px;
+    align-items: end;
+    margin-top: 25px;
+}
+
+.program-hero h1{
+    max-width: 920px;
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(52px, 6vw, 88px);
+    line-height: 0.94;
+    letter-spacing: -3px;
+}
+
+.program-hero p{
+    max-width: 680px;
+    margin: 28px 0 0;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.program-hero .education-hero-side{
+    transform: translateX(155px);
+}
+
+
+/* =========================================================
+   РУКОВОДИТЕЛЬ ПРОГРАММЫ
+   ========================================================= */
+
+
+
+.program-section-head{
+    grid-template-columns: 1fr 100px;
+    gap: 50px;
+}
+
+.program-section-head h2, .program-goal-title h2, .program-focus-head h2, .program-types-grid h2, .program-areas-title h2, .program-study-head h2, .program-exam-head h2{
+    margin: 14px 0 0;
+    max-width: 780px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 4.2vw, 62px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+.program-section-head h2 span, .program-goal-title h2 span, .program-focus-head h2 span, .program-types-grid h2 span, .program-areas-title h2 span, .program-study-head h2 span, .program-exam-head h2 span{
+    color: #c8a43d;
+}
+
+.program-index{
+    font-family: Georgia, "Times New Roman", serif;
+    text-align: right;
+}
+
+.program-leader-grid{
+    min-height: 330px;
+    border-top: 1px solid #d6cfbd;
+    border-bottom: 1px solid #d6cfbd;
+}
+
+.program-leader-copy{
+    padding: 50px 70px 50px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+
+
+
+
+
+.program-portrait-wrap{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0 25px 50px;
+    border-left: 1px solid #d6cfbd;
+}
+
+.program-portrait-wrap img{
+    border: 10px solid #f2f0e9;
+    box-shadow: 0 14px 35px rgba(4, 47, 35, 0.14);
+}
+
+
+/* =========================================================
+   ЦЕЛЬ ПРОГРАММЫ
+   ========================================================= */
+
+
+
+
+
+
+
+
+
+.program-goal-copy > p:first-child{
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+    line-height: 1.28;
+    letter-spacing: -0.4px;
+    color: var(--green-dark);
+}
+
+.program-goal-copy .program-profile{
+    margin: 35px 0 0;
+    padding-top: 28px;
+    border-top: 1px solid #d6cfbd;
+    color: #59645e;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   ПРОФИЛЬ ПОДГОТОВКИ
+   ========================================================= */
+
+.program-focus-section{
+    padding: 88px 0;
+    background: #fff;
+}
+
+.program-focus-head{
+    margin-bottom: 40px;
+}
+
+.program-chip-grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    border-top: 1px solid #d6cfbd;
+}
+
+.program-chip{
+    min-height: 125px;
+    padding: 28px 30px;
+    display: flex;
+    align-items: flex-start;
+    gap: 28px;
+    border-right: 1px solid #d6cfbd;
+    border-bottom: 1px solid #d6cfbd;
+    box-sizing: border-box;
+}
+
+.program-chip:nth-child(2n){
+    border-right: none;
+}
+
+.program-chip span{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+}
+
+.program-chip strong{
+    max-width: 560px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+    line-height: 1.12;
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   ВИДЫ ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ
+   ========================================================= */
+
+
+
+
+
+
+
+
+
+.program-types-grid > div > p{
+    max-width: 470px;
+    margin: 28px 0 0;
+    color: rgba(255, 255, 255, 0.66);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+
+
+.program-type{
+    gap: 25px;
+}
+
+
+
+.program-type strong{
+    line-height: 1.1;
+}
+
+
+/* =========================================================
+   ОБЛАСТЬ ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ
+   ========================================================= */
+
+
+
+
+
+
+
+.program-areas-copy{
+    padding-top: 8px;
+}
+
+
+
+
+
+
+
+.program-areas-copy li::before{
+    top: 28px;
+    width: 7px;
+    height: 7px;
+    background: #c8a43d;
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   ФОРМЫ ОБУЧЕНИЯ
+   ========================================================= */
+
+
+
+.program-study-head{
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: 70px;
+    align-items: end;
+    margin-bottom: 42px;
+}
+
+.program-study-head p{
+    margin: 0;
+    color: #59645e;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.program-study-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #d6cfbd;
+}
+
+.program-study-item{
+    position: relative;
+    padding: 28px 30px 30px;
+    border-right: 1px solid #d6cfbd;
+    border-bottom: 1px solid #d6cfbd;
+}
+
+.program-study-item:last-child{
+    border-right: none;
+}
+
+.program-study-item > span{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+}
+
+.program-study-item > strong{
+    display: block;
+    margin-top: 20px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 40px;
+    line-height: 1;
+}
+
+.program-study-item h3{
+    margin: 10px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 24px;
+}
+
+.program-study-item p{
+    margin: 7px 0 0;
+    color: #59645e;
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   ВСТУПИТЕЛЬНЫЕ ИСПЫТАНИЯ
+   ========================================================= */
+
+
+
+.program-exam-head{
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 40px;
+}
+
+.program-exam-head h2 span{
+    color: #c8a43d;
+}
+
+.program-exam-head p{
+    margin: 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.program-exam-card{
+    display: grid;
+    grid-template-columns: 70px 1fr 40px;
+    gap: 28px;
+    align-items: center;
+    min-height: 150px;
+    padding: 30px 35px;
+    border: 1px solid rgba(200, 164, 61, 0.45);
+    box-sizing: border-box;
+}
+
+.program-exam-card > span{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 22px;
+}
+
+.program-exam-card small{
+    color: #c8a43d;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.program-exam-card h3{
+    margin: 9px 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    font-weight: 500;
+}
+
+.program-exam-card p{
+    margin: 7px 0 0;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 14px;
+}
+
+
+
+.program-exam-place strong{
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   АДАПТИВ
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .program-hero-grid, .program-leader-grid, .program-goal-grid, .program-types-grid, .program-areas-grid, .program-study-head, .program-exam-head{
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .program-hero-inner{
+        padding: 125px 0 70px;
+    }
+
+    .program-hero .education-hero-side{
+        transform: none;
+    }
+
+    .program-section-head{
+        grid-template-columns: 1fr;
+    }
+
+    .program-index{
+        text-align: left;
+    }
+
+    .program-leader-copy{
+        padding: 40px 0;
+    }
+
+    .program-portrait-wrap{
+        padding: 30px 0;
+        border-left: none;
+        border-top: 1px solid #d6cfbd;
+    }
+
+    .program-chip-grid, .program-study-grid{
+        grid-template-columns: 1fr;
+    }
+
+    .program-chip:nth-child(2n){
+        border-right: 1px solid #d6cfbd;
+    }
+
+    .program-chip:last-child, .program-study-item:last-child{
+        border-right: none;
+    }
+
+    .program-types-grid, .program-goal-grid, .program-areas-grid{
+        gap: 45px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .program-hero{
+        min-height: 560px;
+    }
+
+    .program-hero h1{
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .program-hero p{
+        font-size: 16px;
+    }
+
+    .program-leader-copy h3{
+        font-size: 34px;
+    }
+
+    .program-portrait-wrap img{
+        width: 220px;
+        height: 220px;
+    }
+
+    .program-goal-copy > p:first-child{
+        font-size: 23px;
+    }
+
+    .program-chip strong{
+        font-size: 21px;
+    }
+
+    .program-type strong{
+        font-size: 23px;
+    }
+
+    .program-study-item > strong{
+        font-size: 34px;
+    }
+
+    .program-exam-card{
+        grid-template-columns: 45px 1fr;
+        padding: 24px;
+    }
+
+    .program-exam-card > span{
+        grid-row: 1 / 3;
+    }
+
+    .program-exam-card h3{
+        font-size: 26px;
+    }
+
+    .program-exam-card::after{
+        display: none;
+    }
+}
+
+/* =========================================================
+   PROGRAM PAGE — FINAL VISUAL REFINEMENT
+   Правоохранительная и судебная деятельность
+   ========================================================= */
+
+/* ---------------------------------------------------------
+   РУКОВОДИТЕЛЬ ПРОГРАММЫ
+   --------------------------------------------------------- */
+
+
+
+.program-section-head{
+    padding-top: 70px;
+    margin-bottom: 0;
+    transform: translateY(-90px);
+}
+
+
+
+
+
+
+
+.program-leader-grid{
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 0;
+    align-items: stretch;
+}
+
+.program-leader-copy{
+    max-width: 650px;
+}
+
+
+
+.program-leader-copy h3{
+    margin: 0 0 18px;
+    color: var(--green-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(34px, 3.2vw, 48px);
+    line-height: 1;
+    letter-spacing: -1.3px;
+}
+
+.program-leader-copy p{
+    max-width: 570px;
+    margin: 0;
+    color: #59645e;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+.program-portrait-wrap{
+    width: 100%;
+    height: 620px;
+    overflow: hidden;
+}
+
+.program-portrait-wrap img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* ---------------------------------------------------------
+   ЦЕЛЬ ПРОГРАММЫ
+   --------------------------------------------------------- */
+
+.program-goal-section{
+    padding: 78px 0;
+    background: #f6f4ee;
+}
+
+.program-goal-grid{
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 100px;
+    align-items: start;
+}
+
+.program-goal-title h2{
+    margin: 14px 0 0;
+    max-width: 500px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(44px, 4vw, 60px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+.program-goal-title h2 span{
+    color: #c8a43d;
+}
+
+.program-goal-meta{
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 230px;
+}
+
+.program-goal-code{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.program-goal-meta-text{
+    padding-left: 14px;
+    border-left: 1px solid #d6cfbd;
+    color: #59645e;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.6px;
+    line-height: 1.2;
+}
+
+.program-goal-copy{
+    padding-top: 8px;
+}
+
+.program-goal-copy p{
+    max-width: 720px;
+    margin: 0;
+    color: #43534c;
+    font-size: 19px;
+    line-height: 1.65;
+}
+
+
+/* ---------------------------------------------------------
+   ПРОФИЛЬ ПОДГОТОВКИ
+   --------------------------------------------------------- */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------
+   ВИДЫ ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ
+   --------------------------------------------------------- */
+
+.program-types-section{
+    padding: 75px 0;
+    background: #f6f4ee;
+    color: var(--green-dark);
+}
+
+.program-types-grid{
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 90px;
+    align-items: center;
+}
+
+.program-types-grid .section-label{
+    color: #c8a43d;
+}
+
+.program-types-grid h2{
+    margin: 14px 0 18px;
+    max-width: 500px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 4vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -1.8px;
+}
+
+.program-types-grid h2 span{
+    color: #c8a43d;
+}
+
+.program-types-grid > div:first-child > p{
+    max-width: 470px;
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.55;
+}
+
+.program-type-list{
+    border-top: 1px solid rgba(255,255,255,.2);
+}
+
+.program-type{
+    display: grid;
+    grid-template-columns: 55px 1fr;
+    align-items: center;
+    min-height: 92px;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+}
+
+.program-type span{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 18px;
+}
+
+.program-type strong{
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 27px;
+    font-weight: 500;
+}
+
+
+/* ---------------------------------------------------------
+   ОБЛАСТЬ ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ
+   --------------------------------------------------------- */
+
+
+
+.program-areas-grid{
+    display: grid;
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 100px;
+    align-items: start;
+}
+
+.program-areas-title h2{
+    margin: 14px 0 0;
+    max-width: 520px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 4vw, 60px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+.program-areas-title h2 span{
+    color: #c8a43d;
+}
+
+.program-areas-copy > p{
+    max-width: 650px;
+    margin: 0 0 25px;
+    color: #59645e;
+    font-size: 17px;
+    line-height: 1.55;
+}
+
+.program-areas-copy ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    border-top: 1px solid #d6cfbd;
+}
+
+.program-areas-copy li{
+    position: relative;
+    min-height: 62px;
+    display: flex;
+    align-items: center;
+    padding: 15px 20px 15px 42px;
+    border-bottom: 1px solid #d6cfbd;
+    box-sizing: border-box;
+    color: var(--green-dark);
+    font-size: 16px;
+    line-height: 1.45;
+}
+
+.program-areas-copy li::before{
+    content: "→";
+    position: absolute;
+    left: 5px;
+    color: #c8a43d;
+    font-size: 18px;
+}
+
+
+/* ---------------------------------------------------------
+   ФОРМЫ ОБУЧЕНИЯ — КОМПАКТНАЯ ВЕРСИЯ
+   --------------------------------------------------------- */
+
+.program-study-section{
+    padding: 55px 0;
+    background: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ---------------------------------------------------------
+   ЭКЗАМЕН — КОМПАКТНАЯ ВЕРСИЯ
+   --------------------------------------------------------- */
+
+.program-exam-section{
+    padding: 55px 0 60px;
+    background: var(--green-dark);
+    color: #ffffff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.program-exam-place{
+    margin-top: 17px;
+    color: rgba(255,255,255,.6);
+    font-size: 13px;
+}
+
+.program-exam-place strong{
+    color: #ffffff;
+}
+
+
+/* ---------------------------------------------------------
+   АДАПТИВ
+   --------------------------------------------------------- */
+
+@media (max-width: 900px) {
+
+    .program-leader-grid, .program-goal-grid, .program-types-grid, .program-areas-grid{
+        grid-template-columns: 1fr;
+        gap: 38px;
+    }
+
+    .program-leader-grid{
+        align-items: start;
+    }
+
+    .program-portrait-wrap{
+        max-width: 430px;
+    }
+
+    
+
+    
+
+    
+
+    
+
+    .program-section-head{
+        align-items: flex-start;
+    }
+
+    .program-index{
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .program-leader-section, .program-areas-section{
+        padding: 60px 0;
+    }
+
+    .program-goal-section, .program-types-section{
+        padding: 60px 0;
+    }
+
+    .program-section-head h2, .program-goal-title h2, .program-areas-title h2{
+        font-size: 42px;
+    }
+
+    .program-leader-grid{
+        gap: 28px;
+    }
+
+    .program-portrait-wrap{
+        height: 280px;
+    }
+
+    .program-leader-copy h3{
+        font-size: 35px;
+    }
+
+    .program-goal-copy p{
+        font-size: 17px;
+    }
+
+    .program-type strong{
+        font-size: 23px;
+    }
+
+    .program-study-section, .program-exam-section{
+        padding: 48px 0;
+    }
+}
+
+/* =========================================================
+   ОБЛАСТЬ ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ — NEW
+   ========================================================= */
+
+
+
+
+
+
+
+.program-areas-header h2{
+    font-weight: 700;
+}
+
+
+
+.program-areas-header > p{
+    max-width: 560px;
+    margin: 0 0 4px auto;
+    color: rgba(255,255,255,.68);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* Список */
+
+
+
+
+
+
+
+
+
+.program-area-text{
+    font-weight: 400;
+}
+
+
+
+
+
+
+/* =========================================================
+   АДАПТИВ
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .program-areas-header{
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .program-areas-header > p{
+        margin-left: 0;
+    }
+
+    .program-area-item{
+        grid-template-columns: 55px 1fr 30px;
+        gap: 15px;
+    }
+
+    .program-area-text{
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .program-areas-section{
+        padding: 60px 0;
+    }
+
+    .program-areas-header h2{
+        font-size: 42px;
+    }
+
+    .program-area-item{
+        grid-template-columns: 40px 1fr;
+        gap: 12px;
+        padding: 20px 0;
+    }
+
+    .program-area-text{
+        font-size: 18px;
+    }
+
+    
+}
+
+.program-types-grid h2, .program-type strong{
+    color: var(--green-dark);
+}
+
+.program-types-grid > div:first-child > p{
+    color: #59645e;
+}
+
+.program-type-list{
+    border-top-color: #d6cfbd;
+}
+
+.program-type{
+    border-bottom-color: #d6cfbd;
+}
+
+/* =========================================================
+   ОБЛАСТЬ ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ
+   ========================================================= */
+
+.program-areas-section{
+    padding: 78px 0 82px;
+    background: var(--green-dark);
+    color: #ffffff;
+}
+
+.program-areas-header{
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 100px;
+    align-items: end;
+    margin-bottom: 48px;
+}
+
+.program-areas-header .section-label{
+    color: #c8a43d;
+}
+
+.program-areas-header h2{
+    margin: 14px 0 0;
+    max-width: 600px;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(44px, 4vw, 60px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+.program-areas-header h2 span{
+    color: #c8a43d;
+}
+
+.program-areas-header p{
+    max-width: 560px;
+    margin: 0 0 3px auto;
+    color: rgba(255,255,255,.68);
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* Список */
+
+.program-areas-list{
+    border-top: 1px solid rgba(200,164,61,.45);
+}
+
+.program-area-item{
+    display: grid;
+    grid-template-columns: 75px 1fr 35px;
+    gap: 25px;
+    align-items: center;
+
+    min-height: 105px;
+
+    border-bottom: 1px solid rgba(200,164,61,.3);
+
+    transition:
+        background .25s ease,
+        padding-left .25s ease;
+}
+
+.program-area-item:hover{
+    background: rgba(255,255,255,.035);
+    padding-left: 10px;
+}
+
+.program-area-number{
+    color: #c8a43d;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+}
+
+.program-area-text{
+    max-width: 900px;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 23px;
+    line-height: 1.25;
+}
+
+
+
+
+
+
+/* Адаптив */
+
+@media (max-width: 900px) {
+
+    .program-areas-header{
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .program-areas-header p{
+        margin-left: 0;
+    }
+
+    .program-area-item{
+        grid-template-columns: 55px 1fr 30px;
+        gap: 15px;
+    }
+
+    .program-area-text{
+        font-size: 20px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .program-areas-section{
+        padding: 60px 0;
+    }
+
+    .program-areas-header h2{
+        font-size: 42px;
+    }
+
+    .program-area-item{
+        grid-template-columns: 40px 1fr;
+        gap: 12px;
+        padding: 20px 0;
+    }
+
+    .program-area-text{
+        font-size: 18px;
+    }
+
+    
+}
+
+
+/* =========================================================
+   РУКОВОДИТЕЛЬ ПРОГРАММЫ
+   ФОТО НА ВСЮ ВЫСОТУ СЕКЦИИ
+   ========================================================= */
+
+.program-leader-section{
+    padding: 0;
+    background: #ffffff;
+}
+
+
+
+
+/* ---------------------------------------------------------
+   ЛЕВАЯ ЧАСТЬ
+   --------------------------------------------------------- */
+
+.program-leader-left{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+.program-section-head{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 0;
+}
+
+.program-section-head h2{
+    max-width: 520px;
+    margin: 14px 0 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(42px, 4vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -1.8px;
+}
+
+.program-section-head h2 span{
+    display: block;
+    color: #c8a43d;
+}
+
+.program-index{
+    margin-top: 10px;
+
+    color: #c8a43d;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+
+/* ---------------------------------------------------------
+   ИНФОРМАЦИЯ О РУКОВОДИТЕЛЕ
+   --------------------------------------------------------- */
+
+.program-leader-info{
+    max-width: 560px;
+}
+
+.program-kicker{
+    margin-bottom: 15px;
+
+    color: #c8a43d;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+}
+
+.program-leader-info h3{
+    margin: 0 0 20px;
+
+    color: var(--green-dark);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(36px, 3.2vw, 50px);
+    line-height: 1;
+    letter-spacing: -1.4px;
+}
+
+.program-leader-info p{
+    max-width: 520px;
+    margin: 0;
+
+    color: #59645e;
+    font-size: 17px;
+    line-height: 1.6;
+}
+
+
+/* ---------------------------------------------------------
+   ФОТОГРАФИЯ
+   --------------------------------------------------------- */
+
+
+
+
+
+
+
+
+/* =========================================================
+   АДАПТИВ
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .program-leader-layout{
+        grid-template-columns: 1fr;
+    }
+
+    .program-leader-left{
+        min-height: auto;
+        padding: 60px 0 45px;
+    }
+
+    .program-leader-photo{
+        min-height: 500px;
+        border-left: none;
+        border-top: 1px solid #d6cfbd;
+    }
+
+    .program-leader-photo::before{
+        display: none;
+    }
+
+    .program-index{
+        display: none;
+    }
+
+    .program-leader-info{
+        padding-top: 55px;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .program-leader-left{
+        padding: 50px 0 40px;
+    }
+
+    .program-section-head h2{
+        font-size: 40px;
+    }
+
+    .program-leader-info h3{
+        font-size: 34px;
+    }
+
+    .program-leader-photo{
+        min-height: 400px;
+    }
+}
+
+
+/* =========================================================
+   РУКОВОДИТЕЛЬ ПРОГРАММЫ
+   Фото начинается вместе с блоком и заканчивается ровно
+   там, где заканчивается левый контент.
+   ========================================================= */
+
+.program-leader-layout{
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 0;
+    align-items: stretch;
+}
+
+.program-leader-left{
+    justify-content: flex-start;
+    min-height: 0;
+    padding: 80px 65px 40px 0;
+}
+.program-leader-info{
+    padding-top: 35px;
+    padding-bottom: 0;
+}
+
+.program-leader-photo{
+    position: relative;
+    height: auto;
+    min-height: 0;
+    overflow: hidden;
+    border-left: 1px solid #d6cfbd;
+}
+
+.program-leader-photo::before{
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: #c8a43d;
+    z-index: 2;
+}
+
+.program-leader-photo img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 70%;
+}
+
+/* На мобильных фото идёт отдельным блоком. */
+@media (max-width: 900px) {
+    .program-leader-layout{
+        grid-template-columns: 1fr;
+    }
+
+    .program-leader-left{
+        min-height: 0;
+        padding: 60px 0 45px;
+    }
+
+    .program-leader-photo{
+        height: 500px;
+        min-height: 0;
+        border-left: none;
+        border-top: 1px solid #d6cfbd;
+    }
+
+    .program-leader-photo::before{
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .program-leader-left{
+        padding: 50px 0 40px;
+    }
+
+    .program-leader-photo{
+        height: 400px;
+    }
+}
+
+
+/* =========================================================
+   ТОЧНАЯ ВЫСОТА ФОТО:
+   высота строки определяется левым содержимым.
+   Фото занимает эту же высоту от самого верха до самого низа.
+   ========================================================= */
+
+@media (min-width: 901px) {
+    .program-leader-layout{
+        align-items: stretch;
+    }
+
+    .program-leader-photo{
+        position: relative;
+        height: auto;
+        min-height: 0;
+        overflow: hidden;
+    }
+
+    .program-leader-photo img{
+        position: absolute;
+        inset: 0;
+
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+
+        display: block;
+        object-fit: cover;
+        object-position: center 70%;
+    }
+}
+
+
+/* =========================================================
+   ЦЕЛЬ ПРОГРАММЫ — ФИНАЛЬНАЯ НАСТРОЙКА
+   Более собранная типографика и ясная иерархия.
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    /* Поднимаем только левый визуальный блок,
+       не меняя высоту и геометрию секции. */
+    .program-goal-title{
+        transform: translateY(-20px);
+    }
+
+    .program-goal-title h2{
+        max-width: 470px;
+        font-size: clamp(44px, 3.7vw, 56px);
+        line-height: 0.99;
+    }
+
+    /* Основной текст делаем немного компактнее. */
+    .program-goal-copy > p:first-child{
+        font-size: 26px;
+        line-height: 1.32;
+    }
+}
+
+/* Явная подпись перед описанием профиля. */
+.program-goal-copy .program-profile{
+    position: relative;
+}
+
+.program-goal-copy .program-profile::before{
+    content: "ПРОФИЛЬ ПОДГОТОВКИ";
+    display: block;
+    margin-bottom: 14px;
+    color: #b89432;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 2.4px;
+}
+
+/* =========================================================
+   ПРОФЕССИОНАЛЬНАЯ ДЕЯТЕЛЬНОСТЬ — ВТОРОЙ ВАРИАНТ
+   ========================================================= */
+
+@media (min-width: 901px) {
+    .program-focus-head {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 100px;
+        align-items: stretch;
+        min-height: 300px;
+        margin-bottom: 56px;
+    }
+
+    .program-focus-intro {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 300px;
+        padding: 32px 34px 30px;
+        box-sizing: border-box;
+        background: var(--green-dark);
+        overflow: hidden;
+    }
+
+    .program-focus-intro::after {
+        content: "";
+        position: absolute;
+        right: -48px;
+        bottom: -76px;
+        width: 190px;
+        height: 190px;
+        border: 1px solid rgba(200, 164, 61, 0.45);
+        border-radius: 50%;
+    }
+
+    .program-focus-intro .section-label {
+        position: relative;
+        z-index: 1;
+        margin-top: 0;
+        color: #c8a43d;
+    }
+
+    .program-focus-intro .section-label::after {
+        background: #c8a43d;
+    }
+
+    .program-focus-range {
+        position: relative;
+        z-index: 1;
+        color: rgba(255, 255, 255, 0.94);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(76px, 8vw, 118px);
+        line-height: 0.82;
+        letter-spacing: -5px;
+    }
+
+    .program-focus-title {
+        display: flex;
+        align-items: center;
+        padding: 10px 0;
+    }
+
+    .program-focus-title h2 {
+        max-width: 570px;
+        margin: 0;
+        color: var(--green-dark);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: clamp(44px, 4vw, 60px);
+        line-height: 0.98;
+        letter-spacing: -2px;
+    }
+
+    .program-focus-title h2 span {
+        display: block;
+        color: #c8a43d;
+    }
+}
+
+@media (max-width: 900px) {
+    .program-focus-head {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 28px;
+        margin-bottom: 48px;
+    }
+
+    .program-focus-intro {
+        position: relative;
+        min-height: 190px;
+        padding: 24px 26px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        box-sizing: border-box;
+        background: var(--green-dark);
+        overflow: hidden;
+    }
+
+    .program-focus-intro::after {
+        content: "";
+        position: absolute;
+        right: -45px;
+        bottom: -65px;
+        width: 150px;
+        height: 150px;
+        border: 1px solid rgba(200, 164, 61, 0.45);
+        border-radius: 50%;
+    }
+
+    .program-focus-intro .section-label {
+        position: relative;
+        z-index: 1;
+        margin-top: 0;
+        color: #c8a43d;
+    }
+
+    .program-focus-range {
+        position: relative;
+        z-index: 1;
+        color: rgba(255, 255, 255, 0.94);
+        font-family: Georgia, "Times New Roman", serif;
+        font-size: 72px;
+        line-height: 0.82;
+        letter-spacing: -3px;
+    }
+
+    .program-focus-title {
+        padding: 0;
+    }
+
+    .program-focus-title h2 {
+        max-width: 560px;
+    }
+}
+
+@media (max-width: 600px) {
+    .program-focus-intro {
+        min-height: 160px;
+        padding: 20px;
+    }
+
+    .program-focus-range {
+        font-size: 58px;
+    }
+
+    .program-focus-title h2 {
+        font-size: clamp(38px, 9vw, 50px);
+        letter-spacing: -1.4px;
+    }
+}
+
+
+/* =========================================================
+   ПРОФЕССИОНАЛЬНАЯ ДЕЯТЕЛЬНОСТЬ — ВАРИАНТ 3
+   ЕДИНАЯ КОМПОЗИЦИЯ + ПОЛНОЦЕННЫЙ СПИСОК
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    .program-focus-section {
+        padding: 78px 0 86px;
+    }
+
+    .program-focus-head {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 100px;
+        align-items: stretch;
+        min-height: 250px;
+        margin-bottom: 48px;
+    }
+
+    .program-focus-intro {
+        min-height: 250px;
+        padding: 30px 34px 28px;
+    }
+
+    .program-focus-range {
+        font-size: clamp(70px, 7vw, 104px);
+    }
+
+    .program-focus-title {
+        padding: 0;
+        align-items: center;
+    }
+
+    .program-focus-title h2 {
+        max-width: 570px;
+        font-size: clamp(44px, 4vw, 60px);
+    }
+
+    /* Полноценный список на всю ширину */
+    .program-focus-list {
+        width: 100%;
+        border-top: 1px solid #d6cfbd;
+    }
+
+    .program-focus-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 100px 1fr;
+        align-items: center;
+        min-height: 92px;
+        padding: 20px 0;
+        border-bottom: 1px solid #d6cfbd;
+        box-sizing: border-box;
+        transition:
+            padding-left 0.3s ease,
+            background-color 0.3s ease;
+    }
+
+    .program-focus-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #c8a43d;
+        transform: scaleY(0);
+        transform-origin: center;
+        transition: transform 0.3s ease;
+    }
+
+    .program-focus-number {
+        color: #c8a43d;
+        font-size: 16px;
+        font-weight: 700;
+        letter-spacing: 1px;
+        transition:
+            color 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .program-focus-item strong {
+        max-width: 1050px;
+        color: var(--green-dark);
+        font-family: inherit;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1.5;
+        transition:
+            color 0.3s ease,
+            transform 0.3s ease;
+    }
+
+    .program-focus-item:hover {
+        padding-left: 10px;
+    }
+
+    .program-focus-item:hover::before {
+        transform: scaleY(1);
+    }
+
+    .program-focus-item:hover .program-focus-number {
+        color: var(--green-dark);
+        transform: translateX(2px);
+    }
+
+    .program-focus-item:hover strong {
+        color: #0b2f25;
+        transform: translateX(2px);
+    }
+}
+
+@media (max-width: 900px) {
+
+    .program-focus-list {
+        width: 100%;
+        border-top: 1px solid #d6cfbd;
+    }
+
+    .program-focus-item {
+        position: relative;
+        display: grid;
+        grid-template-columns: 48px 1fr;
+        gap: 12px;
+        align-items: start;
+        padding: 20px 0;
+        border-bottom: 1px solid #d6cfbd;
+        box-sizing: border-box;
+    }
+
+    .program-focus-item::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: #c8a43d;
+        transform: scaleY(0);
+        transition: transform 0.25s ease;
+    }
+
+    .program-focus-number {
+        color: #c8a43d;
+        font-size: 15px;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+
+    .program-focus-item strong {
+        color: var(--green-dark);
+        font-size: 17px;
+        font-weight: 500;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .program-focus-section {
+        padding: 60px 0;
+    }
+
+    .program-focus-intro {
+        min-height: 160px;
+    }
+
+    .program-focus-list {
+        margin-top: 4px;
+    }
+
+    .program-focus-item {
+        grid-template-columns: 40px 1fr;
+        gap: 8px;
+        padding: 18px 0;
+    }
+
+    .program-focus-item strong {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+}
+
+
+/* =========================================================
+   ПРОФЕССИОНАЛЬНАЯ ДЕЯТЕЛЬНОСТЬ — ВАРИАНТ 4
+   БОЛЕЕ ПЛОТНАЯ И ЦЕЛЬНАЯ КОМПОЗИЦИЯ
+   ========================================================= */
+
+@media (min-width: 901px) {
+
+    .program-focus-section {
+        padding: 72px 0 80px;
+    }
+
+    .program-focus-head {
+        min-height: 220px;
+        margin-bottom: 20px;
+    }
+
+    .program-focus-intro {
+        min-height: 220px;
+        padding: 28px 32px 26px;
+    }
+
+    .program-focus-range {
+        font-size: clamp(82px, 7vw, 98px);
+        letter-spacing: -4px;
+    }
+
+    .program-focus-title {
+        padding: 0;
+    }
+
+    .program-focus-title h2 {
+        max-width: 570px;
+        font-size: clamp(44px, 4vw, 60px);
+    }
+
+    .program-focus-list {
+        position: relative;
+    }
+
+    /* Небольшой золотой акцент над списком */
+    .program-focus-list::before {
+        content: "";
+        position: absolute;
+        top: -1px;
+        left: 0;
+        width: 90px;
+        height: 2px;
+        background: #c8a43d;
+        z-index: 2;
+    }
+
+    .program-focus-item {
+        min-height: 100px;
+        padding: 22px 0;
+    }
+
+    .program-focus-item strong {
+        font-size: 19px;
+        line-height: 1.5;
+    }
+}
+
+/* =========================================================
+   ПРОФЕССИОНАЛЬНАЯ ДЕЯТЕЛЬНОСТЬ
+   ========================================================= */
+
+.program-focus-section {
+    padding: 72px 0 80px;
+    background: #ffffff;
+}
+
+
+/* ---------- ВЕРХНЯЯ КОМПОЗИЦИЯ ---------- */
+
+.program-focus-head {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 100px;
+    align-items: stretch;
+
+    min-height: 220px;
+    margin-bottom: 20px;
+}
+
+
+/* ---------- ЗЕЛЁНЫЙ БЛОК ---------- */
+
+.program-focus-intro {
+    position: relative;
+
+    min-height: 220px;
+    padding: 28px 32px 26px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    box-sizing: border-box;
+
+    background: var(--green-dark);
+
+    overflow: hidden;
+}
+
+
+/* декоративный круг */
+
+.program-focus-intro::after {
+    content: "";
+
+    position: absolute;
+
+    right: -48px;
+    bottom: -76px;
+
+    width: 190px;
+    height: 190px;
+
+    border: 1px solid rgba(200, 164, 61, 0.45);
+
+    border-radius: 50%;
+}
+
+
+/* подпись */
+
+.program-focus-intro .section-label {
+    position: relative;
+    z-index: 1;
+
+    margin: 0;
+
+    color: #c8a43d;
+}
+
+
+/* линия рядом с подписью */
+
+.program-focus-intro .section-label::after {
+    background: #c8a43d;
+}
+
+
+/* большое число */
+
+.program-focus-range {
+    position: relative;
+    z-index: 1;
+
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(82px, 7vw, 98px);
+
+    line-height: 0.82;
+
+    letter-spacing: -4px;
+}
+
+
+/* ---------- ЗАГОЛОВОК СПРАВА ---------- */
+
+.program-focus-title {
+    display: flex;
+    align-items: center;
+
+    padding: 0;
+}
+
+
+.program-focus-title h2 {
+    max-width: 570px;
+
+    margin: 0;
+
+    color: var(--green-dark);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(44px, 4vw, 60px);
+
+    line-height: 0.98;
+
+    letter-spacing: -2px;
+}
+
+
+.program-focus-title h2 span {
+    display: block;
+
+    color: #c8a43d;
+}
+
+
+/* =========================================================
+   СПИСОК
+   ========================================================= */
+
+.program-focus-list {
+    position: relative;
+
+    width: 100%;
+
+    border-top: 1px solid #d6cfbd;
+}
+
+
+/* золотой акцент */
+
+.program-focus-list::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: -1px;
+
+    width: 90px;
+    height: 2px;
+
+    background: #c8a43d;
+
+    z-index: 2;
+}
+
+
+/* ---------- СТРОКА ---------- */
+
+.program-focus-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 100px 1fr 40px;
+
+    align-items: center;
+
+    min-height: 100px;
+
+    padding: 22px 0;
+
+    border-bottom: 1px solid #d6cfbd;
+
+    box-sizing: border-box;
+
+    transition:
+        padding-left 0.3s ease,
+        background-color 0.3s ease;
+}
+
+
+/* золотая линия при наведении */
+
+.program-focus-item::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: 0;
+    bottom: 0;
+
+    width: 2px;
+
+    background: #c8a43d;
+
+    transform: scaleY(0);
+
+    transform-origin: center;
+
+    transition: transform 0.3s ease;
+}
+
+
+/* ---------- НОМЕР ---------- */
+
+.program-focus-number {
+    color: #c8a43d;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ---------- ТЕКСТ ---------- */
+
+.program-focus-item strong {
+    max-width: 1050px;
+
+    color: var(--green-dark);
+
+    font-family: inherit;
+
+    font-size: 19px;
+
+    font-weight: 500;
+
+    line-height: 1.5;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* ---------- РОМБ ---------- */
+
+.program-focus-symbol {
+    justify-self: end;
+
+    color: #c8a43d;
+
+    font-size: 10px;
+
+    opacity: 0.75;
+
+    transform: rotate(0deg);
+
+    transition:
+        transform 0.3s ease,
+        opacity 0.3s ease,
+        color 0.3s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.program-focus-item:hover {
+    padding-left: 10px;
+}
+
+
+.program-focus-item:hover::before {
+    transform: scaleY(1);
+}
+
+
+.program-focus-item:hover .program-focus-number {
+    color: var(--green-dark);
+
+    transform: translateX(2px);
+}
+
+
+.program-focus-item:hover strong {
+    color: #0b2f25;
+
+    transform: translateX(2px);
+}
+
+
+.program-focus-item:hover .program-focus-symbol {
+    color: #c8a43d;
+
+    opacity: 1;
+
+    transform: rotate(45deg) scale(1.15);
+}
+
+
+/* =========================================================
+   ПЛАНШЕТ
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .program-focus-section {
+        padding: 60px 0;
+    }
+
+
+    .program-focus-head {
+        grid-template-columns: 1fr;
+
+        gap: 28px;
+
+        min-height: auto;
+
+        margin-bottom: 40px;
+    }
+
+
+    .program-focus-intro {
+        min-height: 190px;
+
+        padding: 24px 26px;
+    }
+
+
+    .program-focus-range {
+        font-size: 72px;
+    }
+
+
+    .program-focus-title h2 {
+        max-width: 560px;
+
+        font-size: clamp(42px, 7vw, 56px);
+    }
+
+
+    .program-focus-item {
+        grid-template-columns: 55px 1fr 25px;
+
+        gap: 12px;
+
+        min-height: 90px;
+
+        padding: 20px 0;
+    }
+
+
+    .program-focus-item strong {
+        font-size: 17px;
+    }
+
+
+    .program-focus-symbol {
+        font-size: 9px;
+    }
+}
+
+
+/* =========================================================
+   ТЕЛЕФОН
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .program-focus-section {
+        padding: 52px 0 60px;
+    }
+
+
+    .program-focus-intro {
+        min-height: 160px;
+
+        padding: 20px;
+    }
+
+
+    .program-focus-range {
+        font-size: 58px;
+
+        letter-spacing: -3px;
+    }
+
+
+    .program-focus-title h2 {
+        font-size: clamp(38px, 9vw, 50px);
+
+        letter-spacing: -1.4px;
+    }
+
+
+    .program-focus-item {
+        grid-template-columns: 40px 1fr 18px;
+
+        gap: 8px;
+
+        min-height: 80px;
+
+        padding: 18px 0;
+    }
+
+
+    .program-focus-item strong {
+        font-size: 16px;
+
+        line-height: 1.5;
+    }
+
+
+    .program-focus-symbol {
+        font-size: 8px;
+    }
+}
+
+/* =========================================================
+   ПРОФЕССИОНАЛЬНАЯ ДЕЯТЕЛЬНОСТЬ
+   НОВАЯ КОМПОЗИЦИЯ
+   ========================================================= */
+
+.program-focus-section {
+    padding: 35px 0 90px;
+    background: #ffffff;
+}
+
+/* =========================================================
+   ВЕРХНЯЯ ЧАСТЬ
+   ========================================================= */
+
+.program-focus-top {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 74px;
+    align-items: stretch;
+    margin-bottom: 28px;
+}
+
+
+/* =========================================================
+   ЛЕВАЯ ФОТО-КАРТОЧКА
+   ========================================================= */
+
+.program-focus-visual {
+    position: relative;
+
+    min-height: 370px;
+
+    overflow: hidden;
+
+    background: #f3efe5;
+}
+
+
+/* фотография */
+
+.program-focus-visual-image {
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        linear-gradient(
+            90deg,
+            rgba(249, 246, 238, 0.96) 0%,
+            rgba(249, 246, 238, 0.82) 35%,
+            rgba(249, 246, 238, 0.68) 100%
+        ),
+        url("images/dnemuniver.jpg");
+
+    background-size: cover;
+
+    background-position: center center;
+
+    filter: saturate(0.15) contrast(0.9);
+
+    transform: scale(1.02);
+}
+
+
+/* лёгкая золотая линия снизу */
+
+.program-focus-visual::after {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 34%;
+    height: 2px;
+
+    background: #c8a43d;
+
+    z-index: 3;
+}
+
+
+/* содержимое карточки */
+
+.program-focus-visual-content {
+    position: relative;
+
+    z-index: 2;
+
+    height: 100%;
+    min-height: 370px;
+
+    padding: 42px 48px 34px;
+
+    display: flex;
+    flex-direction: column;
+
+    box-sizing: border-box;
+}
+
+
+/* подпись */
+
+.program-focus-visual-label {
+    display: flex;
+    flex-direction: column;
+
+    width: fit-content;
+
+    color: #c8a43d;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    letter-spacing: 2.8px;
+
+    line-height: 1.7;
+}
+
+
+/* линия справа от подписи */
+
+.program-focus-visual-line {
+    position: absolute;
+
+    top: 77px;
+    left: 302px;
+
+    width: 84px;
+    height: 1px;
+
+    background: #c8a43d;
+}
+
+
+/* большое число */
+
+.program-focus-range {
+    margin-top: auto;
+
+    color: #c8a43d;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(88px, 9vw, 126px);
+
+    font-weight: 400;
+
+    line-height: 0.8;
+
+    letter-spacing: -6px;
+
+    opacity: 0.72;
+}
+
+
+/* =========================================================
+   ДЕКОРАТИВНЫЙ КРУГ
+   ========================================================= */
+
+.program-focus-visual::before {
+    content: "";
+
+    position: absolute;
+
+    z-index: 2;
+
+    width: 235px;
+    height: 235px;
+
+    right: -74px;
+    bottom: -96px;
+
+    border: 1.5px solid rgba(200, 164, 61, 0.85);
+
+    border-radius: 50%;
+}
+
+
+/* =========================================================
+   ПРАВАЯ ЧАСТЬ
+   ========================================================= */
+
+.program-focus-copy {
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    padding: 8px 0 8px;
+}
+
+
+.program-focus-copy h2 {
+    max-width: 600px;
+
+    margin: 0;
+
+    color: var(--green-dark);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(48px, 5vw, 68px);
+
+    line-height: 0.98;
+
+    letter-spacing: -2.5px;
+}
+
+
+.program-focus-copy h2 span {
+    display: block;
+
+    color: #c8a43d;
+}
+
+
+.program-focus-copy p {
+    max-width: 540px;
+
+    margin: 42px 0 0;
+
+    color: #66736d;
+
+    font-size: 18px;
+
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   СПИСОК
+   ========================================================= */
+
+.program-focus-list {
+    position: relative;
+
+    width: 100%;
+
+    border-top: 1px solid #ddd7ca;
+}
+
+
+/* золотой акцент */
+
+.program-focus-list::before {
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    top: -1px;
+
+    width: 90px;
+    height: 2px;
+
+    background: #c8a43d;
+
+    z-index: 3;
+}
+
+
+/* =========================================================
+   СТРОКА
+   ========================================================= */
+
+.program-focus-item {
+    position: relative;
+
+    display: grid;
+
+    grid-template-columns: 88px 1px minmax(0, 1fr) 54px;
+
+    column-gap: 24px;
+
+    align-items: center;
+
+    min-height: 104px;
+
+    padding: 20px 4px 20px 0;
+
+    border-bottom: 1px solid #ddd7ca;
+
+    box-sizing: border-box;
+
+    transition:
+        background-color 0.35s ease,
+        padding-left 0.35s ease;
+}
+
+
+/* номер */
+
+.program-focus-number {
+    color: #c8a43d;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 34px;
+
+    line-height: 1;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* вертикальный разделитель */
+
+.program-focus-divider {
+    width: 1px;
+
+    height: 30px;
+
+    background: #ddd7ca;
+
+    transition:
+        background-color 0.3s ease,
+        height 0.3s ease;
+}
+
+
+/* текст */
+
+.program-focus-item strong {
+    max-width: 1080px;
+
+    color: var(--green-dark);
+
+    font-family: inherit;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    line-height: 1.5;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+/* =========================================================
+   КРУГ С РОМБОМ
+   ========================================================= */
+
+.program-focus-symbol {
+    justify-self: end;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid #c8a43d;
+
+    border-radius: 50%;
+
+    box-sizing: border-box;
+
+    color: #c8a43d;
+
+    transition:
+        background-color 0.35s ease,
+        transform 0.35s ease,
+        border-color 0.35s ease;
+}
+
+
+.program-focus-symbol span {
+    display: block;
+
+    font-size: 10px;
+
+    line-height: 1;
+
+    transition:
+        transform 0.35s ease;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.program-focus-item:hover {
+    padding-left: 12px;
+
+    background: #faf8f2;
+}
+
+
+.program-focus-item:hover .program-focus-number {
+    color: #b08d2f;
+
+    transform: translateX(2px);
+}
+
+
+.program-focus-item:hover .program-focus-divider {
+    height: 42px;
+
+    background: #c8a43d;
+}
+
+
+.program-focus-item:hover strong {
+    color: #0b3026;
+
+    transform: translateX(3px);
+}
+
+
+.program-focus-item:hover .program-focus-symbol {
+    background: #c8a43d;
+
+    border-color: #c8a43d;
+
+    transform: scale(1.08);
+}
+
+
+.program-focus-item:hover .program-focus-symbol span {
+    color: #ffffff;
+
+    transform: rotate(45deg);
+}
+
+
+/* =========================================================
+   ПЛАНШЕТ
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .program-focus-section {
+        padding: 65px 0 70px;
+    }
+
+
+    .program-focus-top {
+        grid-template-columns: 1fr;
+
+        gap: 40px;
+
+        margin-bottom: 40px;
+    }
+
+
+    .program-focus-visual {
+        min-height: 320px;
+    }
+
+
+    .program-focus-visual-content {
+        min-height: 320px;
+
+        padding: 32px 34px 28px;
+    }
+
+
+    .program-focus-visual-line {
+        top: 67px;
+        left: 270px;
+    }
+
+
+    .program-focus-range {
+        font-size: 92px;
+    }
+
+
+    .program-focus-copy {
+        padding: 0;
+    }
+
+
+    .program-focus-copy h2 {
+        max-width: 600px;
+
+        font-size: clamp(44px, 7vw, 60px);
+    }
+
+
+    .program-focus-copy p {
+        margin-top: 28px;
+
+        font-size: 17px;
+    }
+
+
+    .program-focus-item {
+        grid-template-columns: 60px 1px minmax(0, 1fr) 48px;
+
+        column-gap: 16px;
+
+        min-height: 92px;
+    }
+
+
+    .program-focus-number {
+        font-size: 29px;
+    }
+
+
+    .program-focus-item strong {
+        font-size: 17px;
+    }
+
+
+    .program-focus-symbol {
+        width: 42px;
+        height: 42px;
+    }
+}
+
+
+/* =========================================================
+   ТЕЛЕФОН
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .program-focus-section {
+        padding: 52px 0 60px;
+    }
+
+
+    .program-focus-top {
+        gap: 32px;
+
+        margin-bottom: 34px;
+    }
+
+
+    .program-focus-visual {
+        min-height: 250px;
+    }
+
+
+    .program-focus-visual-content {
+        min-height: 250px;
+
+        padding: 24px 22px 24px;
+    }
+
+
+    .program-focus-visual-label {
+        font-size: 11px;
+
+        letter-spacing: 2.2px;
+    }
+
+
+    .program-focus-visual-line {
+        top: 57px;
+        left: 225px;
+
+        width: 60px;
+    }
+
+
+    .program-focus-range {
+        font-size: 70px;
+
+        letter-spacing: -4px;
+    }
+
+
+    .program-focus-visual::before {
+        width: 170px;
+        height: 170px;
+
+        right: -70px;
+        bottom: -76px;
+    }
+
+
+    .program-focus-copy h2 {
+        font-size: clamp(38px, 10vw, 52px);
+
+        letter-spacing: -1.6px;
+    }
+
+
+    .program-focus-copy p {
+        margin-top: 24px;
+
+        font-size: 16px;
+
+        line-height: 1.6;
+    }
+
+
+    .program-focus-item {
+        grid-template-columns: 44px 1px minmax(0, 1fr) 38px;
+
+        column-gap: 10px;
+
+        min-height: 88px;
+
+        padding: 18px 0;
+    }
+
+
+    .program-focus-number {
+        font-size: 25px;
+    }
+
+
+    .program-focus-divider {
+        height: 28px;
+    }
+
+
+    .program-focus-item strong {
+        font-size: 15px;
+
+        line-height: 1.45;
+    }
+
+
+    .program-focus-symbol {
+        width: 34px;
+        height: 34px;
+    }
+
+
+    .program-focus-symbol span {
+        font-size: 7px;
+    }
+}
+
+/* =========================================================
+   ДОРАБОТКА БЛОКА «ПРОФЕССИОНАЛЬНАЯ ДЕЯТЕЛЬНОСТЬ»
+   ========================================================= */
+
+/* Заголовок справа — компактнее, чтобы получились 2 строки */
+.program-focus-copy h2 {
+    max-width: 700px;
+    font-size: clamp(48px, 4.4vw, 62px);
+    letter-spacing: -2.2px;
+}
+
+/* Немного больше воздуха под заголовком */
+.program-focus-copy p {
+    max-width: 560px;
+    margin-top: 34px;
+    font-size: 19px;
+    line-height: 1.65;
+}
+
+/* Фото немного выразительнее */
+.program-focus-visual-image {
+    filter: saturate(0.2) contrast(0.98);
+}
+
+/* Чуть больше воздуха в строках */
+.program-focus-item {
+    padding-top: 24px;
+    padding-bottom: 24px;
+}
+
+/* Символ справа */
+.program-focus-symbol span {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* Более аккуратный hover */
+.program-focus-item:hover .program-focus-symbol span {
+    transform: rotate(45deg) scale(1.05);
+}
+
+
+/* =========================================================
+   ПЛАНШЕТ
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .program-focus-copy h2 {
+        max-width: 650px;
+        font-size: clamp(44px, 7vw, 60px);
+    }
+
+    .program-focus-copy p {
+        font-size: 18px;
+    }
+}
+
+
+/* =========================================================
+   ТЕЛЕФОН
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .program-focus-copy h2 {
+        max-width: 100%;
+        font-size: clamp(38px, 10vw, 52px);
+        letter-spacing: -1.6px;
+    }
+
+    .program-focus-copy p {
+        font-size: 16px;
+    }
+
+    .program-focus-item {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .program-focus-symbol span {
+        font-size: 12px;
+    }
+}
+
+
+/* =========================================================
+   ФИНАЛЬНАЯ НАСТРОЙКА БЛОКА ПРОФЕССИОНАЛЬНОЙ ДЕЯТЕЛЬНОСТИ
+   ========================================================= */
+
+/* Заголовок в две строки */
+.program-focus-copy h2 {
+    max-width: 760px;
+    font-size: clamp(46px, 4vw, 58px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+/* Немного уменьшаем расстояние до описания */
+.program-focus-copy p {
+    max-width: 560px;
+    margin-top: 32px;
+}
+
+
+/* =========================================================
+   НОВЫЙ СИМВОЛ СПРАВА
+   ========================================================= */
+
+.program-focus-symbol span {
+    width: 9px;
+    height: 9px;
+
+    display: block;
+
+    border: 1.5px solid currentColor;
+
+    transform: rotate(45deg);
+
+    font-size: 0;
+
+    transition:
+        transform 0.35s ease,
+        background-color 0.35s ease;
+}
+
+
+/* Hover */
+.program-focus-item:hover .program-focus-symbol span {
+    background: #ffffff;
+
+    transform: rotate(45deg) scale(1.15);
+}
+
+
+/* =========================================================
+   ЧУТЬ БОЛЬШЕ ВОЗДУХА В СПИСКЕ
+   ========================================================= */
+
+.program-focus-item {
+    min-height: 108px;
+}
+
+
+/* =========================================================
+   ПЛАНШЕТ
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .program-focus-copy h2 {
+        max-width: 700px;
+        font-size: clamp(44px, 6vw, 56px);
+    }
+
+    .program-focus-item {
+        min-height: 96px;
+    }
+}
+
+
+/* =========================================================
+   ТЕЛЕФОН
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .program-focus-copy h2 {
+        max-width: 100%;
+        font-size: clamp(38px, 10vw, 52px);
+    }
+
+    .program-focus-item {
+        min-height: 88px;
+    }
+
+    .program-focus-symbol span {
+        width: 7px;
+        height: 7px;
+    }
+}
+
+.program-focus-copy h2 {
+    max-width: 850px;
+    font-size: clamp(44px, 3.6vw, 56px);
+    line-height: 0.98;
+    letter-spacing: -2px;
+}
+
+/* =========================================================
+   ПРОФЕССИОНАЛЬНАЯ ДЕЯТЕЛЬНОСТЬ
+   ========================================================= */
+
+.program-focus-section {
+    padding: 55px 0 80px;
+    background: #fff;
+}
+
+
+/* ---------- верхняя композиция ---------- */
+
+.program-focus-hero {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 76px;
+    align-items: center;
+    margin-bottom: 42px;
+}
+
+
+/* ---------- визуальная карточка ---------- */
+
+.program-focus-visual {
+    position: relative;
+    height: 370px;
+    overflow: hidden;
+    background: #f4f1e9;
+}
+
+.program-focus-visual img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%);
+}
+
+.program-focus-visual-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(255, 255, 255, 0.78);
+}
+
+.program-focus-visual-label {
+    position: absolute;
+    top: 38px;
+    left: 48px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    color: #c8a43d;
+    font-size: 13px;
+    line-height: 1.1;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.program-focus-visual-label::after {
+    content: "";
+    width: 88px;
+    height: 1px;
+    margin-top: 10px;
+    background: #c8a43d;
+}
+
+.program-focus-number {
+    position: absolute;
+    left: 46px;
+    bottom: 22px;
+
+    color: rgba(200, 164, 61, 0.62);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(82px, 8vw, 118px);
+    line-height: 0.85;
+    letter-spacing: -5px;
+}
+
+.program-focus-circle {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+
+    right: -58px;
+    bottom: -112px;
+
+    border: 1px solid #c8a43d;
+    border-radius: 50%;
+}
+
+
+/* ---------- текст справа ---------- */
+
+.program-focus-intro h2 {
+    max-width: 610px;
+    margin: 0;
+
+    color: var(--green-dark);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(46px, 4.5vw, 70px);
+    line-height: 0.98;
+    letter-spacing: -2.5px;
+}
+
+.program-focus-intro h2 span {
+    display: block;
+    color: #c8a43d;
+}
+
+.program-focus-intro p {
+    max-width: 570px;
+    margin: 38px 0 0;
+
+    color: #68736e;
+    font-size: 18px;
+    line-height: 1.65;
+}
+
+
+/* ---------- список ---------- */
+
+.program-focus-list {
+    position: relative;
+
+    border-top: 1px solid #d6cfbd;
+}
+
+.program-focus-list::before {
+    content: "";
+    display: block;
+
+    width: 92px;
+    height: 2px;
+
+    margin-top: -1px;
+
+    background: #c8a43d;
+}
+
+
+/* ---------- отдельная строка ---------- */
+
+.program-focus-item {
+    position: relative;
+
+    min-height: 108px;
+
+    display: grid;
+    grid-template-columns: 88px 1px minmax(0, 1fr) 64px;
+    align-items: center;
+    column-gap: 28px;
+
+    border-bottom: 1px solid #d6cfbd;
+
+    transition:
+        background-color 0.3s ease,
+        padding-left 0.3s ease;
+}
+
+.program-focus-item-number {
+    color: #c8a43d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 32px;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.program-focus-divider {
+    width: 1px;
+    height: 30px;
+
+    background: #d6cfbd;
+}
+
+.program-focus-item strong {
+    color: var(--green-dark);
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    line-height: 1.45;
+    font-weight: 500;
+}
+
+
+/* ---------- весы ---------- */
+
+.program-focus-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(200, 164, 61, 0.55);
+    border-radius: 50%;
+
+    color: #c8a43d;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        transform 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.program-focus-icon svg {
+    width: 25px;
+    height: 25px;
+
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+
+/* ---------- hover ---------- */
+
+.program-focus-item:hover {
+    background: #f7f4ec;
+    padding-left: 14px;
+}
+
+.program-focus-item:hover .program-focus-icon {
+    background: #c8a43d;
+    border-color: #c8a43d;
+    color: #fff;
+    transform: rotate(-2deg);
+}
+
+
+/* =========================================================
+   АДАПТИВ
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .program-focus-section {
+        padding: 70px 0 80px;
+    }
+
+    .program-focus-hero {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .program-focus-visual {
+        height: 330px;
+    }
+
+    .program-focus-intro h2 {
+        font-size: clamp(42px, 8vw, 58px);
+    }
+
+    .program-focus-intro p {
+        margin-top: 28px;
+    }
+
+    .program-focus-item {
+        grid-template-columns: 65px 1px minmax(0, 1fr) 55px;
+        column-gap: 20px;
+    }
+
+    .program-focus-item strong {
+        font-size: 16px;
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .program-focus-section {
+        padding: 55px 0 65px;
+    }
+
+    .program-focus-visual {
+        height: 270px;
+    }
+
+    .program-focus-visual-label {
+        top: 26px;
+        left: 26px;
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .program-focus-number {
+        left: 25px;
+        bottom: 18px;
+        font-size: 70px;
+    }
+
+    .program-focus-circle {
+        width: 180px;
+        height: 180px;
+        right: -75px;
+        bottom: -85px;
+    }
+
+    .program-focus-intro h2 {
+        font-size: 42px;
+        letter-spacing: -1.5px;
+    }
+
+    .program-focus-intro p {
+        font-size: 16px;
+        line-height: 1.55;
+    }
+
+    .program-focus-item {
+        min-height: 105px;
+
+        grid-template-columns: 48px 1px minmax(0, 1fr) 48px;
+        column-gap: 14px;
+    }
+
+    .program-focus-item-number {
+        font-size: 26px;
+    }
+
+    .program-focus-item strong {
+        font-size: 14px;
+        line-height: 1.4;
+    }
+
+    .program-focus-icon {
+        width: 42px;
+        height: 42px;
+    }
+
+    .program-focus-icon svg {
+        width: 21px;
+        height: 21px;
+    }
+
+}
+
+
+/* Акцентный зелёный блок */
+.program-focus-intro {
+    background: var(--green-dark);
+    padding: 70px 55px 60px;
+    min-height: 370px;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+}
+
+.program-focus-intro::after {
+    content: "";
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    right: -80px;
+    bottom: -100px;
+    border: 1px solid rgba(200, 164, 61, 0.45);
+    border-radius: 50%;
+}
+
+.program-focus-intro h2 {
+    position: relative;
+    z-index: 2;
+
+    max-width: 650px;
+    margin: 0;
+
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(44px, 4.3vw, 68px);
+    line-height: 0.98;
+    letter-spacing: -2.5px;
+}
+
+.program-focus-intro h2 span {
+    display: block;
+    color: #c8a43d;
+}
+
+.program-focus-intro p {
+    position: relative;
+    z-index: 2;
+
+    max-width: 540px;
+    margin: 38px 0 0;
+
+    color: rgba(255, 255, 255, 0.68);
+
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   ФИНАЛЬНАЯ НАСТРОЙКА ВЕРХНЕЙ ЧАСТИ
+   ========================================================= */
+
+.program-focus-hero {
+    align-items: stretch;
+}
+
+.program-focus-visual,
+.program-focus-intro {
+    height: 420px;
+    min-height: 420px;
+}
+
+.program-focus-intro {
+    padding: 55px 55px 45px;
+}
+
+.program-focus-intro h2 {
+    font-size: clamp(44px, 4.1vw, 64px);
+    line-height: 0.98;
+}
+
+.program-focus-intro p {
+    margin-top: 32px;
+}
+
+
+.program-focus-list::before {
+    display: none;
+}
+
+
+/* Декоративный элемент в секции «Цель программы» */
+.program-goal-title {
+    position: relative;
+    overflow: visible;
+}
+
+
+.program-goal-title::before {
+    content: "";
+    position: absolute;
+    width: 210px;
+    height: 1px;
+    background: #c8a43d;
+    left: 0;
+    bottom: 42px;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* =========================================================
+   ПОСТУПЛЕНИЕ НА ПРОГРАММУ
+   ========================================================= */
+
+.program-admission-section {
+    padding: 70px 0 90px;
+    background: #f6f4ee;
+}
+
+
+/* ---------- заголовок ---------- */
+
+.program-admission-header {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: 80px;
+    align-items: end;
+    margin-bottom: 55px;
+}
+
+.program-admission-header h2 {
+    max-width: 620px;
+    margin: 18px 0 0;
+
+    color: var(--green-dark);
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(46px, 4.5vw, 66px);
+    line-height: 0.98;
+    letter-spacing: -2.4px;
+}
+
+.program-admission-header h2 span {
+    display: block;
+    color: #c8a43d;
+}
+
+.program-admission-header > p {
+    max-width: 430px;
+    margin: 0 0 5px;
+
+    color: #68736e;
+
+    font-size: 17px;
+    line-height: 1.65;
+}
+
+
+/* =========================================================
+   ДВЕ ЧАСТИ
+   ========================================================= */
+
+.program-admission-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+
+    background: #d6cfbd;
+
+    border-top: 1px solid #d6cfbd;
+    border-bottom: 1px solid #d6cfbd;
+}
+
+
+/* =========================================================
+   ФОРМЫ ОБУЧЕНИЯ
+   ========================================================= */
+
+.program-admission-study {
+    padding: 38px 48px 42px;
+    background: #ffffff;
+}
+
+.program-admission-subtitle {
+    color: #c8a43d;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    letter-spacing: 2.5px;
+}
+
+
+/* строка обучения */
+
+.program-admission-form {
+    display: grid;
+    grid-template-columns: 55px minmax(0, 1fr) auto;
+    gap: 20px;
+    align-items: center;
+
+    min-height: 105px;
+
+    border-bottom: 1px solid #d6cfbd;
+}
+
+.program-admission-form:first-of-type {
+    margin-top: 18px;
+    border-top: 1px solid #d6cfbd;
+}
+
+.program-admission-number {
+    color: #c8a43d;
+
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 28px;
+}
+
+.program-admission-form h3 {
+    margin: 0;
+
+    color: var(--green-dark);
+
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.program-admission-form p {
+    margin: 7px 0 0;
+
+    color: #7a837e;
+
+    font-size: 14px;
+}
+
+.program-admission-form > strong {
+    color: var(--green-dark);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 20px;
+    font-weight: 400;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   ЭКЗАМЕН
+   ========================================================= */
+
+.program-admission-exam {
+    position: relative;
+
+    padding: 38px 48px 42px;
+
+    background: var(--green-dark);
+
+    color: #ffffff;
+
+    overflow: hidden;
+}
+
+.program-admission-exam::after {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    right: -105px;
+    bottom: -150px;
+
+    border: 1px solid rgba(200, 164, 61, 0.45);
+
+    border-radius: 50%;
+}
+
+.program-admission-exam .program-admission-subtitle {
+    position: relative;
+    z-index: 2;
+}
+
+.program-admission-exam-number {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 40px;
+
+    color: rgba(200, 164, 61, 0.55);
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: 76px;
+    line-height: 0.8;
+}
+
+.program-admission-exam h3 {
+    position: relative;
+    z-index: 2;
+
+    max-width: 470px;
+
+    margin: 28px 0 0;
+
+    color: #ffffff;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(38px, 3.5vw, 54px);
+
+    line-height: 0.98;
+    letter-spacing: -1.5px;
+}
+
+.program-admission-exam h3 span {
+    display: block;
+    color: #c8a43d;
+}
+
+.program-admission-exam > p {
+    position: relative;
+    z-index: 2;
+
+    margin: 25px 0 0;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 15px;
+}
+
+.program-admission-place {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 42px;
+    padding-top: 18px;
+
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+
+    color: rgba(255, 255, 255, 0.55);
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.program-admission-place strong {
+    display: block;
+
+    color: #ffffff;
+
+    font-weight: 500;
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.program-admission-form {
+    transition:
+        padding-left 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.program-admission-form:hover {
+    padding-left: 10px;
+    background: #faf9f5;
+}
+
+.program-admission-form:hover .program-admission-number {
+    color: #b08d2f;
+}
+
+
+/* =========================================================
+   ПЛАНШЕТ
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .program-admission-section {
+        padding: 70px 0 80px;
+    }
+
+    .program-admission-header {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 40px;
+    }
+
+    .program-admission-header h2 {
+        font-size: clamp(44px, 7vw, 58px);
+    }
+
+    .program-admission-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .program-admission-study,
+    .program-admission-exam {
+        padding: 34px;
+    }
+
+}
+
+
+/* =========================================================
+   ТЕЛЕФОН
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .program-admission-section {
+        padding: 55px 0 65px;
+    }
+
+    .program-admission-header h2 {
+        font-size: 42px;
+    }
+
+    .program-admission-header > p {
+        font-size: 16px;
+    }
+
+    .program-admission-study,
+    .program-admission-exam {
+        padding: 28px 22px 32px;
+    }
+
+    .program-admission-form {
+        grid-template-columns: 40px minmax(0, 1fr);
+        gap: 12px;
+
+        padding: 16px 0;
+    }
+
+    .program-admission-form > strong {
+        grid-column: 2;
+        font-size: 18px;
+    }
+
+    .program-admission-number {
+        font-size: 24px;
+    }
+
+    .program-admission-form h3 {
+        font-size: 16px;
+    }
+
+    .program-admission-exam-number {
+        font-size: 64px;
+    }
+
+    .program-admission-exam h3 {
+        font-size: 38px;
+    }
+
+}
+
+/* =========================================================
+   ФИНАЛЬНАЯ НАСТРОЙКА БЛОКА «ПОСТУПЛЕНИЕ НА ПРОГРАММУ»
+   ========================================================= */
+
+/* 1. Немного больше воздуха между заголовком и карточками */
+
+.program-admission-header {
+    margin-bottom: 68px;
+}
+
+
+/* 2. Чуть уменьшаем заголовок экзамена,
+   чтобы он свободнее помещался в карточке */
+
+.program-admission-exam h3 {
+    font-size: clamp(36px, 3.1vw, 48px);
+    line-height: 1;
+}
+
+
+/* 3. Декоративный круг оставляем,
+   но делаем его немного деликатнее */
+
+.program-admission-exam::after {
+    width: 280px;
+    height: 280px;
+
+    right: -105px;
+    bottom: -150px;
+
+    border-color: rgba(200, 164, 61, 0.42);
+}
+
+
+.program-admission-document {
+    position: relative;
+    z-index: 2;
+
+    display: inline-block;
+
+    margin-top: 25px;
+
+    color: rgba(255, 255, 255, 0.65);
+
+    font-size: 15px;
+    text-decoration: none;
+
+    border-bottom: 1px solid rgba(200, 164, 61, 0.45);
+    padding-bottom: 4px;
+
+    transition:
+        color 0.25s ease,
+        border-color 0.25s ease;
+}
+
+.program-admission-document:hover {
+    color: #c8a43d;
+    border-color: #c8a43d;
+}
+
+
+/* Фото руководителей — индивидуальное кадрирование */
+
+@media (min-width: 901px) {
+
+    /* Правозащитная деятельность */
+    .human-rights-page .program-leader-photo img {
+        object-position: center 10%;
+    }
+
+    /* Правоохранительная и судебная деятельность */
+    .law-enforcement-page .program-leader-photo img {
+        object-position: center 70%;
+    }
+
+    /* Защита гражданских прав */
+    .civil-rights-page .program-leader-photo img {
+        object-position: center 30%;
+    }
+
+}
+
+@media (min-width: 901px) {
+    .program-focus-visual img {
+        filter: brightness(0.93);
+    }
+}
+
+
+
+/* ДРОПДАУН «АБИТУРИЕНТАМ» */
+.nav-dropdown-button:hover{
+    color: var(--gold-light);
+}
+
+.nav-dropdown-applicants .nav-dropdown-menu{
+    width: 300px;
+}
